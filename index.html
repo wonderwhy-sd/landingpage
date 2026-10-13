@@ -516,7 +516,7 @@ footer p{margin:0;max-width:80ch;line-height:1.5}
       <p class="hero-turn rise" style="animation-delay:.9s">En 3 días, eso deja de decidir por ti.</p>
       <p class="hero-copy rise" style="animation-delay:1.05s">El método paso a paso para que <strong>hablarle a una desconocida que te gusta deje de paralizarte</strong>. Sin frases memorizadas, sin trucos y sin esperar a «sentirte listo».</p>
       <div class="rise" style="animation-delay:1.2s">
-        <a class="cta" id="hero-cta" href="#oferta" data-checkout>
+        <a class="cta" id="hero-cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout>
           <span>Empezar el Día 1 <span class="arrow">→</span></span>
           <span class="price">$9.99</span>
         </a>
@@ -654,7 +654,7 @@ footer p{margin:0;max-width:80ch;line-height:1.5}
       <li class="reveal"><span><b>Por qué esperar a «sentirte listo»</b> es justo lo que te mantiene paralizado.</span></li>
       <li class="reveal"><span><b>Cómo aguantar un silencio</b> sin entrar en pánico (y por qué transmite más que cualquier frase ingeniosa).</span></li>
     </ul>
-    <div class="reveal"><a class="cta" href="#oferta" data-checkout><span>Lo quiero <span class="arrow">→</span></span><span class="price">$9.99</span></a></div>
+    <div class="reveal"><a class="cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout><span>Lo quiero <span class="arrow">→</span></span><span class="price">$9.99</span></a></div>
   </div>
 </section>
 
@@ -715,7 +715,7 @@ footer p{margin:0;max-width:80ch;line-height:1.5}
         <small>Todo por</small>
         <span class="price-big gold">$9.99</span>
         <p class="price-sub">USD · Pago único. Sin suscripciones.</p>
-        <a class="cta" id="offer-cta" href="#oferta" data-checkout><span>Sí, lo quiero <span class="arrow">→</span></span><span class="price">$9.99</span></a>
+        <a class="cta" id="offer-cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout><span>Sí, lo quiero <span class="arrow">→</span></span><span class="price">$9.99</span></a>
         <ul class="assure">
           <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2"/></svg>Pago seguro</li>
           <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h12v8H2z"/><path d="M2 4l6 5 6-5"/></svg>Te llega al email al instante</li>
@@ -763,7 +763,7 @@ footer p{margin:0;max-width:80ch;line-height:1.5}
     <span class="kicker reveal">Lo difícil nunca fue la conversación</span>
     <h2 class="reveal">El miedo no se va esperando. <em class="gold">Se va actuando.</em></h2>
     <p class="reveal">La próxima vez que la veas puedes volver a quedarte quieto. O puedes haber empezado el Día 1 esta misma tarde.</p>
-    <div class="reveal"><a class="cta" href="#oferta" data-checkout><span>Empezar el Día 1 <span class="arrow">→</span></span><span class="price">$9.99</span></a></div>
+    <div class="reveal"><a class="cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout><span>Empezar el Día 1 <span class="arrow">→</span></span><span class="price">$9.99</span></a></div>
     <svg class="final-ecg" viewBox="0 0 620 60" aria-hidden="true"><path d="M0 30 H210 Q222 22 234 30 H252 L258 36 L266 12 L274 40 L280 30 H306 Q322 20 338 30 H620"/></svg>
   </div>
 </section>
@@ -787,15 +787,15 @@ footer p{margin:0;max-width:80ch;line-height:1.5}
 <div class="sticky" id="sticky" aria-hidden="true">
   <div class="wrap">
     <div class="sticky-info"><b>Manual + 5 bonus</b><small>Acceso inmediato</small></div>
-    <a class="cta" href="#oferta" data-checkout tabindex="-1"><span>Empezar <span class="arrow">→</span></span><span class="price">$9.99</span></a>
+    <a class="cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout tabindex="-1"><span>Empezar <span class="arrow">→</span></span><span class="price">$9.99</span></a>
   </div>
 </div>
 
 <script>
 /* ───────── CONFIGURACIÓN ─────────
-   Pega aquí tu enlace de pago (Hotmart, Stripe, Gumroad…).
-   Mientras esté vacío, los botones llevan a la sección de oferta. */
-const CHECKOUT_URL = "";
+   Enlace de pago de Hotmart (hideBillet=1 oculta el pago en efectivo/boleto).
+   Si lo cambias, cámbialo también en el href de los 5 botones [data-checkout]. */
+const CHECKOUT_URL = "https://pay.hotmart.com/W108005367T?checkoutMode=10&hideBillet=1";
 
 document.documentElement.classList.add("js");
 if (CHECKOUT_URL) {
