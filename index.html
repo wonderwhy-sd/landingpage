@@ -9,21 +9,28 @@
 <meta property="og:type" content="product">
 <meta property="og:title" content="¿Cómo perdí el miedo a abordar mujeres en 3 días?">
 <meta property="og:description" content="La ves. El corazón a mil. Y te quedas quieto. En 3 días, eso deja de decidir por ti.">
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel Code: solo se carga si el visitante acepta las cookies (ver aviso de cookies al final) -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1095672469750401');
+function loadMeta() {
+  if (window.fbq) return;
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1095672469750401');
+  trackMeta('PageView');
+  trackMeta('ViewContent');
+}
 
 /* Cada evento sale dos veces con el mismo event_id: desde el navegador (píxel)
-   y desde el servidor (API de conversiones en /api/meta-event). Meta los deduplica. */
+   y desde el servidor (API de conversiones en /api/meta-event). Meta los deduplica.
+   Sin consentimiento (píxel no cargado) no se envía nada. */
 function trackMeta(name, custom) {
+  if (!window.fbq) return;
   const id = name + '-' + Date.now() + '-' + Math.random().toString(36).slice(2);
   fbq(custom ? 'trackCustom' : 'track', name, {}, { eventID: id });
   fetch('/api/meta-event', {
@@ -33,11 +40,9 @@ function trackMeta(name, custom) {
     keepalive: true
   }).catch(() => {});
 }
-trackMeta('PageView');
-trackMeta('ViewContent');
+
+try { if (localStorage.getItem('cookie-consent') === 'accepted') loadMeta(); } catch (e) {}
 </script>
-<noscript><img height="1" width="1" style="display:none" alt=""
-src="https://www.facebook.com/tr?id=1095672469750401&amp;ev=PageView&amp;noscript=1"/></noscript>
 <!-- End Meta Pixel Code -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -512,6 +517,35 @@ footer p{margin:0;max-width:80ch;line-height:1.5}
   .sticky .cta{padding-left:14px;font-size:.74rem;letter-spacing:.05em}
 }
 
+/* aviso de cookies */
+.cookies{
+  position:fixed;z-index:70;left:0;right:0;bottom:0;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 24px;
+  padding:14px var(--gutter) calc(14px + env(safe-area-inset-bottom));
+  background:rgba(10,23,16,.97);border-top:1px solid rgba(217,189,122,.25);
+  font-size:.95rem;line-height:1.45;color:var(--muted);
+}
+.cookies[hidden]{display:none}
+.cookies p{margin:0;max-width:64ch}
+.cookies a{color:var(--gold)}
+.cookies-btns{display:flex;gap:10px;flex:none}
+.cookies button{
+  min-width:112px;padding:10px 18px;border-radius:999px;cursor:pointer;
+  font-family:var(--f-label);font-weight:700;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  border:1px solid var(--gold);background:transparent;color:var(--cream);
+}
+.cookies button[data-consent="accepted"]{background:var(--gold);color:var(--forest)}
+.cookies button:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
+@media (max-width:600px){
+  .cookies{justify-content:flex-start}
+  .cookies-btns{width:100%}
+  .cookies button{flex:1}
+}
+.cookies-open .sticky.on{transform:translateY(110%)}
+footer button.linklike{all:unset;cursor:pointer;color:rgba(243,236,220,.62)}
+footer button.linklike:hover{color:var(--gold)}
+footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
 }
@@ -806,12 +840,22 @@ footer p{margin:0;max-width:80ch;line-height:1.5}
       <a href="#">Aviso legal</a>
       <a href="#">Política de privacidad</a>
       <a href="#">Términos y condiciones</a>
+      <a href="cookies.html">Política de cookies</a>
+      <button type="button" class="linklike" id="cookie-settings">Configurar cookies</button>
       <a href="https://www.instagram.com/wonderwhy.sd/" rel="noopener" target="_blank">Instagram</a>
     </nav>
     <p>Producto digital (PDF). Los resultados dependen de tu práctica: el manual no garantiza resultados concretos con ninguna persona. Respeta siempre un «no».</p>
     <p>© 2026 Wonder Socials</p>
   </div>
 </footer>
+
+<div class="cookies" id="cookies" role="region" aria-label="Aviso de cookies" hidden>
+  <p>Usamos cookies propias y de terceros (Meta) para medir las visitas y mejorar nuestros anuncios. Puedes aceptarlas o rechazarlas. <a href="cookies.html">Más información</a></p>
+  <div class="cookies-btns">
+    <button type="button" data-consent="rejected">Rechazar</button>
+    <button type="button" data-consent="accepted">Aceptar</button>
+  </div>
+</div>
 
 <div class="sticky" id="sticky" aria-hidden="true">
   <div class="wrap">
@@ -830,6 +874,38 @@ document.documentElement.classList.add("js");
 if (CHECKOUT_URL) {
   document.querySelectorAll("[data-checkout]").forEach(a => { a.href = CHECKOUT_URL; });
 }
+
+/* Aviso de cookies: el píxel de Meta y la API de conversiones solo se activan tras «Aceptar». */
+(function () {
+  const KEY = "cookie-consent";
+  const bar = document.getElementById("cookies");
+  const show = () => { bar.hidden = false; document.body.classList.add("cookies-open"); };
+  const hide = () => { bar.hidden = true; document.body.classList.remove("cookies-open"); };
+  const clearMetaCookies = () => {
+    const host = location.hostname;
+    ["_fbp", "_fbc"].forEach(name => {
+      ["", "; domain=" + host, "; domain=." + host].forEach(d => {
+        document.cookie = name + "=; Max-Age=0; path=/" + d;
+      });
+    });
+  };
+  bar.addEventListener("click", e => {
+    const choice = e.target.getAttribute("data-consent");
+    if (!choice) return;
+    try { localStorage.setItem(KEY, choice); } catch (err) {}
+    hide();
+    if (choice === "accepted") {
+      loadMeta();
+    } else {
+      clearMetaCookies();
+      if (window.fbq) location.reload(); // descarga el píxel si ya estaba cargado
+    }
+  });
+  document.getElementById("cookie-settings").addEventListener("click", show);
+  let saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (err) {}
+  if (!saved) show();
+})();
 
 /* Meta: clic en cualquier botón de compra */
 document.querySelectorAll("[data-checkout]").forEach(a => {
