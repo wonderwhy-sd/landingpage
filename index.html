@@ -9,7 +9,36 @@
 <meta property="og:type" content="product">
 <meta property="og:title" content="¿Cómo perdí el miedo a abordar mujeres en 3 días?">
 <meta property="og:description" content="La ves. El corazón a mil. Y te quedas quieto. En 3 días, eso deja de decidir por ti.">
-<!-- Píxel de Meta / TikTok: pégalo aquí -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1095672469750401');
+
+/* Cada evento sale dos veces con el mismo event_id: desde el navegador (píxel)
+   y desde el servidor (API de conversiones en /api/meta-event). Meta los deduplica. */
+function trackMeta(name, custom) {
+  const id = name + '-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+  fbq(custom ? 'trackCustom' : 'track', name, {}, { eventID: id });
+  fetch('/api/meta-event', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ event_name: name, event_id: id, event_source_url: location.href }),
+    keepalive: true
+  }).catch(() => {});
+}
+trackMeta('PageView');
+trackMeta('ViewContent');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1095672469750401&amp;ev=PageView&amp;noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -801,6 +830,11 @@ document.documentElement.classList.add("js");
 if (CHECKOUT_URL) {
   document.querySelectorAll("[data-checkout]").forEach(a => { a.href = CHECKOUT_URL; });
 }
+
+/* Meta: clic en cualquier botón de compra */
+document.querySelectorAll("[data-checkout]").forEach(a => {
+  a.addEventListener("click", () => trackMeta("ClickComprar", true));
+});
 
 /* ECG: de pánico a calma */
 (function () {
