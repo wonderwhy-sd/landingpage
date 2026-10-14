@@ -501,6 +501,10 @@ section{position:relative}
   display:inline-block;margin-bottom:12px;padding:5px 11px;border-radius:999px;border:1px solid rgba(157,191,159,.45);
   font-family:var(--f-label);font-weight:700;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--calm)
 }
+.rating{display:flex;flex-direction:column;align-items:center;gap:6px;margin:0 auto 16px}
+.rating svg{width:136px;height:auto;filter:drop-shadow(0 1px 0 rgba(0,0,0,.5))}
+.rating p{margin:0;font-size:1.04rem;line-height:1.4;color:var(--muted)}
+.rating b{color:var(--gold-hi)}
 .vnote{max-width:62ch;margin:4px auto 0;font-size:.95rem;line-height:1.5;color:rgba(243,236,220,.62)}
 
 /* offer */
@@ -913,6 +917,11 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
   <div class="wrap">
     <span class="kicker reveal">Mensajes reales</span>
     <h2 class="h2 reveal">Lo que me escriben <em class="gold">los que ya se atrevieron.</em></h2>
+    <!-- Valoración de la encuesta de la comunidad: actualizar media (y añadir nº de votos) cuando lleguen más datos -->
+    <div class="rating reveal">
+      <svg viewBox="0 0 120 24" aria-hidden="true"><defs><linearGradient id="rating-fill" gradientUnits="userSpaceOnUse" x1="0" x2="120" y1="0" y2="0"><stop offset=".96" stop-color="#E2C47F"/><stop offset=".96" stop-color="rgba(217,189,122,.25)"/></linearGradient></defs><g fill="url(#rating-fill)"><path d="M12 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M36 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M60 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M84 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M108 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/></g></svg>
+      <p><b>4.8/5</b> en las primeras valoraciones de la comunidad</p>
+    </div>
     <p class="lead reveal">Capturas sin editar. Solo he recortado sus fotos de perfil.</p>
 
     <div class="vgrid">
