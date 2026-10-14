@@ -172,13 +172,15 @@ em{font-style:italic}
 .cta .arrow{display:inline-block;transition:transform .2s ease}
 .cta:hover .arrow{transform:translateX(4px)}
 .center .cta{margin:0 auto}
-.assure{
-  display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:16px;
-  font-size:.95rem;color:var(--muted);list-style:none;padding:0;
+/* sellos de confianza bajo cada botón */
+.trust{
+  display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0 0;padding:0;list-style:none;
+  font-size:.92rem;line-height:1.3;color:var(--muted);
 }
-.center .assure{justify-content:center}
-.assure li{display:flex;align-items:center;gap:7px}
-.assure svg{width:15px;height:15px;color:var(--gold);flex:none}
+.center .trust{justify-content:center}
+.trust li{display:flex;align-items:center;gap:7px;white-space:nowrap}
+.trust svg{width:18px;height:18px;color:var(--gold);flex:none}
+@media (max-width:420px){.trust{gap:8px 14px;font-size:.88rem}}
 
 /* ---------- header ---------- */
 .topbar{
@@ -224,7 +226,13 @@ em{font-style:italic}
   margin:16px 0 18px;max-width:15ch
 }
 .hero h1 em{display:block;font-weight:500}
-.hero-sub{font-size:1.2rem;line-height:1.5;color:var(--muted);max-width:40ch;margin:0 0 24px}
+.hero-sub{font-size:1.2rem;line-height:1.5;color:var(--muted);max-width:40ch;margin:0 0 14px}
+.format{
+  display:flex;flex-wrap:wrap;align-items:center;gap:4px 0;margin:0 0 22px;
+  font-size:.9rem;line-height:1.35;color:var(--stone)
+}
+.format svg{width:18px;height:18px;color:var(--gold);margin-right:8px;flex:none}
+.format span+span::before{content:"·";margin:0 8px;color:var(--gold)}
 @media (min-width:960px){
   .hero-grid{grid-template-columns:1.2fr .8fr;gap:32px}
   .hero{padding-top:56px}
@@ -235,35 +243,45 @@ em{font-style:italic}
 
 /* ---------- book mockup ---------- */
 .scene{position:relative;display:grid;place-items:center;padding:40px 0 90px;min-height:420px}
-.book{
+/* móvil con el PDF abierto: deja claro que es un manual digital que se lee en el teléfono */
+.phone{
   position:relative;z-index:3;
-  width:min(292px,68vw);aspect-ratio:3/4.15;border-radius:4px 10px 10px 4px;
-  transform:perspective(1500px) rotateY(-16deg) rotateX(3deg) rotate(1.5deg);
-  box-shadow:
-    1px 1px 0 #E9DFC6, 3px 2px 0 #D9CEB2, 5px 3px 0 #EDE4CC, 7px 4px 0 #CFC3A5, 9px 5px 0 #E6DCC2, 11px 6px 0 #BDB092,
-    30px 40px 60px -10px rgba(0,0,0,.65);
+  width:min(232px,57vw);aspect-ratio:9/18;padding:9px;border-radius:38px;
+  background:linear-gradient(150deg,#2E3531 0%,#121714 55%,#060807 100%);
+  box-shadow:0 0 0 1.5px #3F4842, inset 0 0 0 1px rgba(255,255,255,.07), 30px 40px 60px -12px rgba(0,0,0,.72);
+  transform:rotate(-4deg);
   animation:float 7s ease-in-out infinite;
 }
-@keyframes float{50%{transform:perspective(1500px) rotateY(-12deg) rotateX(2deg) rotate(1deg) translateY(-8px)}}
+.phone::before{ /* botón lateral */
+  content:"";position:absolute;right:-3px;top:22%;width:3px;height:52px;border-radius:0 3px 3px 0;background:#2A302C
+}
+@keyframes float{50%{transform:rotate(-2.5deg) translateY(-8px)}}
+.screen{
+  position:relative;height:100%;border-radius:30px;overflow:hidden;
+  display:flex;flex-direction:column;background:#0C1610
+}
+.notch{position:absolute;top:7px;left:50%;transform:translateX(-50%);width:32%;height:18px;border-radius:12px;background:#000;z-index:2}
+.pdfbar{
+  display:flex;justify-content:center;align-items:center;gap:12px;padding:32px 14px 8px;
+  font-family:var(--f-body);font-size:.68rem;color:#C9D1C9;background:#0F1A13;border-bottom:1px solid rgba(255,255,255,.06)
+}
 .cover{
-  position:absolute;inset:0;border-radius:inherit;overflow:hidden;
+  position:relative;flex:1;margin:10px;border-radius:6px;overflow:hidden;
   display:flex;flex-direction:column;align-items:center;text-align:center;
-  padding:30px 26px 24px;
+  padding:22px 16px 16px;
 }
-.cover::after{ /* lomo */
-  content:"";position:absolute;left:0;top:0;bottom:0;width:16px;
-  background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(255,255,255,.07) 60%,rgba(0,0,0,.25));
-}
-.cover-brand{font-family:var(--f-label);font-weight:700;font-size:.56rem;letter-spacing:.32em;color:var(--gold);opacity:.9}
-.cover-mark{margin:14px 0 6px;width:38px;height:38px}
-.cover-kick{font-family:var(--f-label);font-size:.5rem;letter-spacing:.28em;color:var(--stone);text-transform:uppercase;margin-bottom:10px}
-.cover-title{font-family:var(--f-display);font-weight:600;font-size:clamp(1.25rem,5vw,1.6rem);line-height:1.05;margin:4px 0 auto}
+.cover.stitch::before{inset:7px}
+.cover-brand{font-family:var(--f-label);font-weight:700;font-size:.5rem;letter-spacing:.3em;color:var(--gold);opacity:.9}
+.cover-mark{margin:12px 0 6px;width:34px;height:34px}
+.cover-kick{font-family:var(--f-label);font-size:.46rem;letter-spacing:.26em;color:var(--stone);text-transform:uppercase;margin-bottom:8px}
+.cover-title{font-family:var(--f-display);font-weight:600;font-size:clamp(1.05rem,4.4vw,1.32rem);line-height:1.06;margin:4px 0 auto}
 .cover-days{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;width:100%}
 .cover-days li{
   border-top:1px solid rgba(217,189,122,.4);padding-top:6px;
   font-family:var(--f-label);font-size:.44rem;letter-spacing:.12em;color:var(--stone);text-transform:uppercase;line-height:1.3
 }
 .cover-days b{display:block;font-family:var(--f-display);font-size:.95rem;letter-spacing:0;color:var(--gold);font-weight:600}
+.cover-foot{margin-top:8px;font-family:var(--f-label);font-weight:700;font-size:.46rem;letter-spacing:.2em;color:var(--stone);text-transform:uppercase}
 
 .booklet{
   position:absolute;z-index:1;width:min(150px,36vw);aspect-ratio:3/4.1;border-radius:3px 7px 7px 3px;
@@ -487,9 +505,15 @@ section{position:relative}
 .price-row small{font-family:var(--f-label);font-weight:700;font-size:.66rem;letter-spacing:.22em;color:var(--stone);text-transform:uppercase}
 .price-big{display:block;font-family:var(--f-display);font-weight:600;font-size:clamp(4.4rem,18vw,6.2rem);line-height:1;margin:8px 0 6px}
 .price-sub{font-size:1.05rem;color:var(--muted);margin:0 0 4px}
-.price-note{font-size:.92rem;color:rgba(243,236,220,.62);margin:0 0 22px}
+.price-note{font-size:.92rem;color:rgba(243,236,220,.62);margin:0 0 16px}
+.why{
+  max-width:40ch;margin:0 auto 22px;padding:12px 16px;border-radius:12px;
+  background:rgba(0,0,0,.22);border:1px dashed rgba(217,189,122,.35);
+  font-size:.98rem;line-height:1.45;color:var(--muted);text-align:left
+}
+.why b{color:var(--gold-hi)}
 .card .cta{margin:0 auto;display:flex}
-.card .assure{justify-content:center}
+.card .trust{justify-content:center}
 .anchor{margin:22px auto 0;max-width:34ch;text-align:center;font-family:var(--f-body);font-style:italic;font-size:1.15rem;line-height:1.4;color:var(--stone)}
 .guarantee{
   max-width:600px;margin:20px auto 0;display:flex;gap:18px;align-items:center;text-align:left;
@@ -596,7 +620,7 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
       <span class="brand-mark" aria-hidden="true">W</span>
       <span class="brand-name">WONDER SOCIALS</span>
     </a>
-    <div class="topbar-note"><span class="pulse" aria-hidden="true"></span><span>Acceso inmediato<span class="long"> · Manual + 5 bonus</span></span></div>
+    <div class="topbar-note"><span class="pulse" aria-hidden="true"></span><span>Acceso inmediato<span class="long"> · PDF + 5 bonus</span></span></div>
   </div>
 </header>
 
@@ -609,15 +633,16 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
       <p class="prehead rise" style="animation-delay:.05s">¿La ves, el corazón se te acelera… y te quedas quieto?</p>
       <h1 class="rise" style="animation-delay:.2s">Pierde el miedo a hablarle a la chica que te gusta <em class="gold">en 3 días.</em></h1>
       <p class="hero-sub rise" style="animation-delay:.45s">El protocolo paso a paso que <b>instala la calma en tu cabeza</b>. Sin frases memorizadas, aunque seas tímido y con solo 1 hora al día.</p>
+      <p class="format rise" style="animation-delay:.52s"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5.5" y="2" width="9" height="16" rx="2"/><path d="M9 15.5h2"/></svg><span>Manual en PDF + 5 guías bonus</span><span>Se lee en el móvil</span><span>No es un curso en vídeo</span></p>
       <div class="rise" style="animation-delay:.6s">
         <a class="cta" id="hero-cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout>
           <span>Empezar hoy <span class="arrow">→</span></span>
           <span class="price">$7</span>
         </a>
-        <ul class="assure">
-          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7"/></svg>Acceso inmediato</li>
-          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7"/></svg>+5 bonus gratis</li>
-          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7"/></svg>Garantía de 7 días</li>
+        <ul class="trust">
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M10 2l6 2.5v5c0 4-2.6 6.9-6 8.5-3.4-1.6-6-4.5-6-8.5v-5z"/><rect x="7.2" y="9" width="5.6" height="4.4" rx="1"/><path d="M8.4 9V7.7a1.6 1.6 0 013.2 0V9"/></svg>Pago seguro con Hotmart</li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M11 2L4 11.5h5L8 18l7-9.5h-5z"/></svg>Acceso inmediato en PDF</li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M16 10a6 6 0 11-1.8-4.3"/><path d="M16.2 3.4v3.3h-3.3"/></svg>Garantía de 7 días</li>
         </ul>
       </div>
     </div>
@@ -628,17 +653,22 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
       <div class="booklet leather b3"><small>Bonus 03</small><span>Blindaje anti-rechazo</span></div>
       <div class="booklet leather b4"><small>Bonus 04</small><span>Sin excusas</span></div>
       <div class="booklet leather b5"><small>Bonus 05</small><span>El mapa de oportunidades</span></div>
-      <div class="book">
-        <div class="cover leather stitch">
-          <span class="cover-brand">WONDER SOCIALS</span>
-          <svg class="cover-mark" viewBox="0 0 40 40"><defs><linearGradient id="gm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7E7B6"/><stop offset=".5" stop-color="#D9BD7A"/><stop offset="1" stop-color="#9C7630"/></linearGradient></defs><path fill="url(#gm)" d="M20 2c3 4 1 6-1 8 4-1 6-4 5-7 4 4 3 10-2 13-2 1-4 2-4 4h-1c0-3 2-5 4-7-3 0-5 2-6 4-1-4 1-7 3-9 2-2 3-4 2-6zM6 22h28v2H6zM8 25h5l4 11h-2zM14 25h5l3 8 3-8h5l-6 13h-4l-2-5-2 5h-1zM27 25h5l-4 11h-2z"/></svg>
-          <span class="cover-kick">Manual de acción</span>
-          <span class="cover-title gold">¿Cómo perdí el miedo a abordar mujeres en 3&nbsp;días?</span>
-          <ul class="cover-days">
-            <li><b>01</b>Despertar</li>
-            <li><b>02</b>Primeros intentos</li>
-            <li><b>03</b>Conversaciones reales</li>
-          </ul>
+      <div class="phone">
+        <div class="screen">
+          <span class="notch"></span>
+          <div class="pdfbar"><span>Manual.pdf</span><span>1 / 37</span></div>
+          <div class="cover leather stitch">
+            <span class="cover-brand">WONDER SOCIALS</span>
+            <svg class="cover-mark" viewBox="0 0 40 40"><defs><linearGradient id="gm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7E7B6"/><stop offset=".5" stop-color="#D9BD7A"/><stop offset="1" stop-color="#9C7630"/></linearGradient></defs><path fill="url(#gm)" d="M20 2c3 4 1 6-1 8 4-1 6-4 5-7 4 4 3 10-2 13-2 1-4 2-4 4h-1c0-3 2-5 4-7-3 0-5 2-6 4-1-4 1-7 3-9 2-2 3-4 2-6zM6 22h28v2H6zM8 25h5l4 11h-2zM14 25h5l3 8 3-8h5l-6 13h-4l-2-5-2 5h-1zM27 25h5l-4 11h-2z"/></svg>
+            <span class="cover-kick">Manual de acción</span>
+            <span class="cover-title gold">¿Cómo perdí el miedo a abordar mujeres en 3&nbsp;días?</span>
+            <ul class="cover-days">
+              <li><b>01</b></li>
+              <li><b>02</b></li>
+              <li><b>03</b></li>
+            </ul>
+            <span class="cover-foot">Protocolo de 3 días</span>
+          </div>
         </div>
       </div>
       <div class="seal">
@@ -779,6 +809,11 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
       <li class="reveal"><span><b>Cómo aguantar un silencio</b> sin entrar en pánico (transmite más seguridad que cualquier frase).</span></li>
     </ul>
     <div class="reveal"><a class="cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout><span>Lo quiero <span class="arrow">→</span></span><span class="price">$7</span></a></div>
+    <div class="reveal"><ul class="trust">
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M10 2l6 2.5v5c0 4-2.6 6.9-6 8.5-3.4-1.6-6-4.5-6-8.5v-5z"/><rect x="7.2" y="9" width="5.6" height="4.4" rx="1"/><path d="M8.4 9V7.7a1.6 1.6 0 013.2 0V9"/></svg>Pago seguro con Hotmart</li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M11 2L4 11.5h5L8 18l7-9.5h-5z"/></svg>Acceso inmediato en PDF</li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M16 10a6 6 0 11-1.8-4.3"/><path d="M16.2 3.4v3.3h-3.3"/></svg>Garantía de 7 días</li>
+        </ul></div>
   </div>
 </section>
 
@@ -855,10 +890,12 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
         <span class="price-big gold">$7</span>
         <p class="price-sub">Pago único. Sin suscripciones.</p>
         <p class="price-note">Precio en dólares: al pagar lo verás en tu moneda.</p>
+        <p class="why"><b>¿Por qué solo $7?</b> Porque prefiero que lo pruebes hoy sin pensártelo a que lo dejes para «la próxima vez». Y si te sirve, me encantará leer tu historia.</p>
         <a class="cta" id="offer-cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout><span>Sí, lo quiero ya <span class="arrow">→</span></span><span class="price">$7</span></a>
-        <ul class="assure">
-          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2"/></svg>Pago seguro con Hotmart</li>
-          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h12v8H2z"/><path d="M2 4l6 5 6-5"/></svg>En 2 minutos estás leyendo el Día 1</li>
+        <ul class="trust">
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M10 2l6 2.5v5c0 4-2.6 6.9-6 8.5-3.4-1.6-6-4.5-6-8.5v-5z"/><rect x="7.2" y="9" width="5.6" height="4.4" rx="1"/><path d="M8.4 9V7.7a1.6 1.6 0 013.2 0V9"/></svg>Pago seguro con Hotmart</li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M11 2L4 11.5h5L8 18l7-9.5h-5z"/></svg>Acceso inmediato en PDF</li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M16 10a6 6 0 11-1.8-4.3"/><path d="M16.2 3.4v3.3h-3.3"/></svg>Garantía de 7 días</li>
         </ul>
       </div>
       <p class="anchor">Menos de lo que cuesta una copa en el bar donde no te atreves a hablarle a nadie.</p>
@@ -904,6 +941,11 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
     <h2 class="reveal">El miedo no se va esperando. <em class="gold">Se va actuando.</em></h2>
     <p class="reveal">La próxima vez que la veas puedes volver a quedarte quieto. O puedes llevar 3 días de protocolo instalado. Empieza hoy, por menos que una copa.</p>
     <div class="reveal"><a class="cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout><span>Empezar hoy <span class="arrow">→</span></span><span class="price">$7</span></a></div>
+    <div class="reveal"><ul class="trust">
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M10 2l6 2.5v5c0 4-2.6 6.9-6 8.5-3.4-1.6-6-4.5-6-8.5v-5z"/><rect x="7.2" y="9" width="5.6" height="4.4" rx="1"/><path d="M8.4 9V7.7a1.6 1.6 0 013.2 0V9"/></svg>Pago seguro con Hotmart</li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M11 2L4 11.5h5L8 18l7-9.5h-5z"/></svg>Acceso inmediato en PDF</li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M16 10a6 6 0 11-1.8-4.3"/><path d="M16.2 3.4v3.3h-3.3"/></svg>Garantía de 7 días</li>
+        </ul></div>
     <svg class="final-ecg" viewBox="0 0 620 60" aria-hidden="true"><path d="M0 30 H210 Q222 22 234 30 H252 L258 36 L266 12 L274 40 L280 30 H306 Q322 20 338 30 H620"/></svg>
   </div>
 </section>
