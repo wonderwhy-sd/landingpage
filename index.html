@@ -482,6 +482,27 @@ section{position:relative}
 .bfree{display:none;font-family:var(--f-label);font-weight:700;font-size:.6rem;letter-spacing:.18em;color:var(--calm);text-transform:uppercase}
 @media (min-width:700px){.bfree{display:block}}
 
+/* testimonios (capturas reales) */
+.voices{background:linear-gradient(180deg,var(--ink),var(--forest))}
+.vgrid{max-width:520px;margin:34px auto 0;text-align:left}
+@media (min-width:900px){.vgrid{max-width:980px;columns:2;column-gap:18px}}
+.voice{ /* la captura va de borde a borde de la tarjeta: más ancha = letra más legible en el móvil */
+  break-inside:avoid;margin:0 0 18px;padding:20px 0 16px;border-radius:18px;overflow:hidden;
+  border:1px solid rgba(217,189,122,.22);background:rgba(243,236,220,.035)
+}
+.voice > :not(img){margin-left:20px;margin-right:20px}
+.voice blockquote{margin-top:0;margin-bottom:14px;font-family:var(--f-body);font-weight:600;font-size:1.32rem;line-height:1.3;color:var(--cream)}
+.voice blockquote::before{content:"«";color:var(--gold)}
+.voice blockquote::after{content:"»";color:var(--gold)}
+.voice img{width:100%;height:auto;border-block:1px solid rgba(243,236,220,.08)}
+.voice figcaption{display:flex;align-items:flex-start;gap:8px;margin-top:12px;font-size:1rem;line-height:1.45;color:var(--muted)}
+.voice figcaption svg{flex:none;width:18px;height:18px;margin-top:.15em;color:var(--calm)}
+.vtag{
+  display:inline-block;margin-bottom:12px;padding:5px 11px;border-radius:999px;border:1px solid rgba(157,191,159,.45);
+  font-family:var(--f-label);font-weight:700;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--calm)
+}
+.vnote{max-width:62ch;margin:4px auto 0;font-size:.95rem;line-height:1.5;color:rgba(243,236,220,.62)}
+
 /* offer */
 .offer{background:radial-gradient(70% 50% at 50% 30%, rgba(217,189,122,.12), transparent 70%), var(--forest)}
 .compare{list-style:none;padding:0;margin:30px auto 0;max-width:600px;display:grid;gap:10px;text-align:left}
@@ -884,6 +905,41 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
         <span class="bfree">Gratis</span>
       </li>
     </ul>
+  </div>
+</section>
+
+<!-- ============ PRUEBA SOCIAL (mensajes reales, sin fotos de perfil) ============ -->
+<section class="sec voices center" id="testimonios">
+  <div class="wrap">
+    <span class="kicker reveal">Mensajes reales</span>
+    <h2 class="h2 reveal">Lo que me escriben <em class="gold">los que ya se atrevieron.</em></h2>
+    <p class="lead reveal">Capturas sin editar. Solo he recortado sus fotos de perfil.</p>
+
+    <div class="vgrid">
+      <figure class="voice reveal">
+        <blockquote>Esta semana por fin me animé a hacerlo.</blockquote>
+        <img src="img/testimonio-1.jpg" width="990" height="734" loading="lazy" decoding="async" alt="Mensaje: «Wonder, de verdad, gracias por los consejos. Llevaba tiempo queriendo atreverme a hablar con una chica que me gustaba y siempre acababa yéndome a casa pensando en que tendría que haberlo intentado. Esta semana por fin me animé a hacerlo y la sensación ha sido increíble jajaja. Me ha ayudado mucho lo que me has enseñado, de verdad.»">
+        <figcaption><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.2l2.4 2.4 4.6-4.8"/></svg>Mensaje privado real</figcaption>
+      </figure>
+      <figure class="voice reveal">
+        <blockquote>Haberme atrevido a probarlo esta semana ha sido increíble.</blockquote>
+        <img src="img/testimonio-2.jpg" width="1018" height="432" loading="lazy" decoding="async" alt="Mensaje de Dani: «Gracias Wonder, la verdad que siempre me sentía mal por no hablarle a la chica que me gustaba, sobre todo al volver a casa. El hecho de haberme atrevido a probarlo esta semana ha sido increíble.»">
+        <figcaption><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.2l2.4 2.4 4.6-4.8"/></svg><span><b>Dani</b> · por WhatsApp</span></figcaption>
+      </figure>
+      <figure class="voice reveal">
+        <blockquote>Me has ayudado a ser yo. Ahora soy yo el que elige.</blockquote>
+        <img src="img/testimonio-3.jpg" width="980" height="556" loading="lazy" decoding="async" alt="Mensaje: «Wonder, muchísimas gracias, que hoy la que me gustaba andaba todo el rato detrás mío y lo mejor es que todo es natural, no finjo ser nadie y me has ayudado a ser yo. Ahora soy yo el que elige, gracias hermano, que esto parece magia.»">
+        <figcaption><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.2l2.4 2.4 4.6-4.8"/></svg>Mensaje privado real</figcaption>
+      </figure>
+      <!-- Lenin hizo el bootcamp presencial, no el manual: debe quedar siempre indicado -->
+      <figure class="voice reveal">
+        <span class="vtag">Bootcamp presencial</span>
+        <blockquote>En esos días pude hacer cierre de beso y cierres de teléfono.</blockquote>
+        <img src="img/testimonio-4.jpg" width="722" height="389" loading="lazy" decoding="async" alt="Mensaje de Lenin: «Me encantó la mentoría, salimos 3 días, de día y de noche. En mi caso, tenía problemas con el rechazo. En esos días pude hacer cierre de beso y cierres de teléfono. ¡Lo recomiendo mucho!»">
+        <figcaption><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.2l2.4 2.4 4.6-4.8"/></svg><span><b>Lenin</b> hizo conmigo el bootcamp presencial: salimos juntos 3 días. Es el mismo método del manual, aplicado en persona.</span></figcaption>
+      </figure>
+    </div>
+    <p class="vnote reveal">Cada caso es distinto: lo que consigas depende de que hagas los ejercicios.</p>
   </div>
 </section>
 
