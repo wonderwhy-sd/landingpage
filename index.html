@@ -515,13 +515,24 @@ section{position:relative}
 .card .cta{margin:0 auto;display:flex}
 .card .trust{justify-content:center}
 .anchor{margin:22px auto 0;max-width:34ch;text-align:center;font-family:var(--f-body);font-style:italic;font-size:1.15rem;line-height:1.4;color:var(--stone)}
+/* garantía: bloque propio y destacado */
 .guarantee{
-  max-width:600px;margin:20px auto 0;display:flex;gap:18px;align-items:center;text-align:left;
-  padding:22px 24px;border-radius:18px;border:1px solid rgba(157,191,159,.35);background:rgba(157,191,159,.06)
+  max-width:600px;margin:28px auto 0;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;text-align:left;
+  padding:28px;border-radius:20px;border:1px solid rgba(217,189,122,.5);
+  background:radial-gradient(70% 120% at 0% 50%, rgba(217,189,122,.14), transparent 70%), rgba(157,191,159,.07);
+  box-shadow:0 24px 50px -30px rgba(0,0,0,.8)
 }
-.guarantee svg{flex:none;width:50px;height:50px;color:var(--calm)}
-.guarantee p{margin:0;font-size:1.05rem;color:var(--muted);line-height:1.45}
-.guarantee b{display:block;font-size:1.25rem;margin-bottom:2px}
+@media (max-width:520px){.guarantee{grid-template-columns:1fr;justify-items:center;text-align:center;padding:26px 22px}}
+.g-seal{
+  position:relative;width:100px;height:100px;border-radius:50%;display:grid;place-content:center;text-align:center;
+  background:var(--gold-grad);color:var(--forest);
+  box-shadow:0 0 0 5px rgba(217,189,122,.18), inset 0 0 0 2px rgba(255,255,255,.35), 0 14px 26px -10px rgba(0,0,0,.7)
+}
+.g-seal svg{position:absolute;inset:16px;width:68px;height:68px;color:rgba(16,37,26,.16)}
+.g-seal b{position:relative;font-family:var(--f-display);font-weight:700;font-size:2.6rem;line-height:.85}
+.g-seal small{position:relative;font-family:var(--f-label);font-weight:700;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}
+.guarantee h3{font-family:var(--f-body);font-weight:600;font-size:1.45rem;line-height:1.2;margin:0 0 6px;color:var(--cream);letter-spacing:0}
+.guarantee p{margin:0;font-size:1.06rem;color:var(--muted);line-height:1.5}
 
 /* faq */
 .faq{margin-top:24px;border-top:1px solid rgba(217,189,122,.2)}
@@ -903,8 +914,14 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
 
     <!-- GARANTÍA: Hotmart aplica un mínimo de 7 días; ajústalo si configuras otro plazo -->
     <div class="guarantee reveal">
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z"/><path d="M17 24l5 5 9-10"/></svg>
-      <p><b>Garantía de 7 días. Riesgo cero.</b>Haz el Día 1. Si no te sirve, pides el reembolso desde Hotmart y recuperas tu dinero. Sin preguntas.</p>
+      <div class="g-seal" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="currentColor"><path d="M24 3l17 6.5v12.5c0 11-7.4 19.6-17 23-9.6-3.4-17-12-17-23V9.5z"/></svg>
+        <b>7</b><small>días</small>
+      </div>
+      <div>
+        <h3>Pruébalo 7 días. Riesgo cero.</h3>
+        <p>Haz el Día 1. Si sientes que no te sirvió, pides el reembolso desde Hotmart y te devuelven <b>el 100% de lo que pagaste</b>. Sin preguntas.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -978,8 +995,8 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
 
 <div class="sticky" id="sticky" aria-hidden="true">
   <div class="wrap">
-    <div class="sticky-info"><b>Manual + 5 bonus</b><small>Empiezas hoy</small></div>
-    <a class="cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout tabindex="-1"><span>Empezar <span class="arrow">→</span></span><span class="price">$7</span></a>
+    <div class="sticky-info"><b>Manual + 5 bonus</b><small>Garantía de 7 días</small></div>
+    <a class="cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout tabindex="-1"><span>Empezar ahora <span class="arrow">→</span></span><span class="price">$7</span></a>
   </div>
 </div>
 
@@ -1091,21 +1108,19 @@ document.querySelectorAll("[data-checkout]").forEach(a => {
   }));
 })();
 
-/* Barra fija de compra: aparece al pasar el héroe, se esconde en la oferta */
+/* Barra fija de compra: siempre visible al hacer scroll, salvo mientras se ve el botón de la portada */
 (function () {
   const sticky = document.getElementById("sticky");
   const hero = document.getElementById("hero-cta");
-  const offer = document.getElementById("oferta");
-  let heroVisible = true, offerVisible = false;
+  let heroVisible = true;
   const update = () => {
-    const on = !heroVisible && !offerVisible;
+    const on = !heroVisible;
     sticky.classList.toggle("on", on);
     sticky.setAttribute("aria-hidden", !on);
     sticky.querySelector("a").tabIndex = on ? 0 : -1;
   };
   if (!("IntersectionObserver" in window)) return;
   new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting || e.boundingClientRect.top > 0; update(); }).observe(hero);
-  new IntersectionObserver(([e]) => { offerVisible = e.isIntersecting; update(); }, { threshold: 0.05 }).observe(offer);
 })();
 </script>
 </body>
