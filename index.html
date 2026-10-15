@@ -235,7 +235,7 @@ em{font-style:italic}
 .badge{text-decoration:none}
 .badge .badge-stars{width:64px;height:auto;flex:none}
 .badge b{color:var(--gold-hi)}
-@media (max-width:370px){.badge-brand{display:none}}
+@media (max-width:420px){.badge-brand{display:none}}
 .hero-quote{display:block;max-width:40ch;margin:18px 0 0;padding:2px 0 2px 14px;border-left:2px solid var(--gold);text-decoration:none}
 .hq-text{display:block;font-style:italic;font-size:1.12rem;line-height:1.4;color:var(--cream)}
 .hq-who{display:block;margin-top:4px;font-size:.92rem;line-height:1.4;color:var(--muted)}
@@ -523,6 +523,19 @@ section{position:relative}
 .rating svg{width:136px;height:auto;filter:drop-shadow(0 1px 0 rgba(0,0,0,.5))}
 .rating p{margin:0;font-size:1.04rem;line-height:1.4;color:var(--muted)}
 .rating b{color:var(--gold-hi)}
+.va{display:flex;align-items:center;gap:12px;margin-top:14px;padding:8px 14px 8px 8px;border-radius:999px;background:rgba(0,0,0,.28);border:1px solid rgba(217,189,122,.22)}
+.va-play{flex:none;width:42px;height:42px;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer;background:var(--gold-grad);color:var(--forest)}
+.va-play:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
+.va-play svg{width:18px;height:18px}
+.va-play .i-pause,.va.playing .i-play{display:none}
+.va.playing .i-pause{display:block}
+.va-wave{flex:1;display:flex;align-items:center;gap:2px;height:30px;cursor:pointer}
+.va-wave i{flex:1;height:var(--h);min-height:3px;border-radius:2px;background:rgba(243,236,220,.28)}
+.va-wave i.on{background:var(--gold)}
+.va-time{flex:none;min-width:2.4em;text-align:right;font-size:.88rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.va-text{margin-top:8px;font-size:.98rem;color:var(--muted)}
+.va-text summary{cursor:pointer;color:var(--gold);font-size:.95rem}
+.va-text p{margin:8px 0 0;font-style:italic;line-height:1.5}
 .vnote{max-width:62ch;margin:4px auto 0;font-size:.95rem;line-height:1.5;color:rgba(243,236,220,.62)}
 
 /* offer */
@@ -557,8 +570,12 @@ section{position:relative}
 .price-row small{font-family:var(--f-label);font-weight:700;font-size:.76rem;letter-spacing:.14em;color:var(--stone);text-transform:uppercase}
 .price-big{display:block;font-family:var(--f-display);font-weight:600;font-size:clamp(4.4rem,18vw,6.2rem);line-height:1;margin:8px 0 6px}
 .price-sub{font-size:1.05rem;color:var(--muted);margin:0 0 4px}
-.launch-note{display:inline-block;margin:6px 0 8px;padding:6px 14px;border-radius:12px;background:rgba(232,165,75,.12);border:1px solid rgba(232,165,75,.35);font-size:.95rem;color:var(--cream)}
-.launch-note b{color:var(--gold-hi)}
+.stock{max-width:400px;margin:8px auto 10px;padding:12px 14px;border-radius:12px;background:rgba(232,165,75,.1);border:1px solid rgba(232,165,75,.35);text-align:left}
+.stock-top{display:flex;justify-content:space-between;gap:10px;font-size:.95rem;line-height:1.3;color:var(--cream)}
+.stock b{color:var(--gold-hi)}
+.stock-bar{height:8px;margin:8px 0 6px;border-radius:99px;background:rgba(243,236,220,.12);overflow:hidden}
+.stock-bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#C49A48,#E8A54B)}
+.stock p{margin:0;font-size:.9rem;color:var(--muted)}
 .price-note{font-size:.92rem;color:rgba(243,236,220,.62);margin:0 0 16px}
 .why{
   max-width:40ch;margin:0 auto 22px;padding:12px 16px;border-radius:12px;
@@ -695,7 +712,7 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <a class="badge rise" href="#testimonios"><svg class="badge-stars" viewBox="0 0 120 24" aria-hidden="true"><defs><linearGradient id="hero-rating-fill" gradientUnits="userSpaceOnUse" x1="0" x2="120" y1="0" y2="0"><stop offset=".96" stop-color="#E2C47F"/><stop offset=".96" stop-color="rgba(217,189,122,.25)"/></linearGradient></defs><g fill="url(#hero-rating-fill)"><path d="M12 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M36 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M60 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M84 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M108 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/></g></svg><span><b>4.8/5</b> en la comunidad<span class="badge-brand"> Wonder Socials</span></span></a>
+      <a class="badge rise" href="#testimonios"><svg class="badge-stars" viewBox="0 0 120 24" aria-hidden="true"><defs><linearGradient id="hero-rating-fill" gradientUnits="userSpaceOnUse" x1="0" x2="120" y1="0" y2="0"><stop offset=".96" stop-color="#E2C47F"/><stop offset=".96" stop-color="rgba(217,189,122,.25)"/></linearGradient></defs><g fill="url(#hero-rating-fill)"><path d="M12 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M36 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M60 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M84 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M108 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/></g></svg><span><b>4.8/5</b> · 31 valoraciones<span class="badge-brand"> de la comunidad</span></span></a>
       <p class="prehead rise">¿La ves, el corazón se te acelera… y te quedas quieto?</p>
       <h1 class="rise">Pierde el miedo a hablarle a la chica que te gusta <em class="gold">en 3 días.</em></h1>
       <p class="hero-sub rise">El protocolo paso a paso que <b>instala la calma en tu cabeza</b>. Sin frases memorizadas, aunque seas tímido y con solo 1 hora al día.</p>
@@ -708,7 +725,7 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
           <span class="hq-text">«Esta semana por fin me animé a hacerlo.»</span>
           <span class="hq-who"><b>Arturo</b>, lector del manual · <u>Ver mensajes reales</u></span>
         </a>
-        <p class="launch"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M11.2 1.5c.4 3-1.6 4.4-3 6-1.3 1.5-2.2 3-2.2 4.8A4.9 4.9 0 0010 17.2a4.9 4.9 0 004-7.7c-.3 1.4-1.1 2.3-2.2 2.6.9-2.7.5-6.6-.6-10.6z"/></svg><span><b>Precio de lanzamiento: $7.</b> Sube a $27 tras las primeras 100 ventas.</span></p>
+        <p class="launch"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M11.2 1.5c.4 3-1.6 4.4-3 6-1.3 1.5-2.2 3-2.2 4.8A4.9 4.9 0 0010 17.2a4.9 4.9 0 004-7.7c-.3 1.4-1.1 2.3-2.2 2.6.9-2.7.5-6.6-.6-10.6z"/></svg><span><b>Precio de lanzamiento: $7.</b> Quedan <b data-quedan>14</b> de 100 copias; después sube a $27.</span></p>
         <ul class="trust">
           <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M10 2l6 2.5v5c0 4-2.6 6.9-6 8.5-3.4-1.6-6-4.5-6-8.5v-5z"/><rect x="7.2" y="9" width="5.6" height="4.4" rx="1"/><path d="M8.4 9V7.7a1.6 1.6 0 013.2 0V9"/></svg>Pago seguro con Hotmart</li>
           <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M11 2L4 11.5h5L8 18l7-9.5h-5z"/></svg>Acceso inmediato en PDF</li>
@@ -939,10 +956,10 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
   <div class="wrap">
     <span class="kicker reveal">Mensajes reales</span>
     <h2 class="h2 reveal">Lo que me escriben <em class="gold">los que ya se atrevieron.</em></h2>
-    <!-- Valoración de la encuesta de la comunidad: actualizar media (y añadir nº de votos) cuando lleguen más datos -->
+    <!-- Valoración de la encuesta de la comunidad (31 votos, media 4.8): actualizar aquí y en el sello del hero -->
     <div class="rating reveal">
       <svg viewBox="0 0 120 24" aria-hidden="true"><defs><linearGradient id="rating-fill" gradientUnits="userSpaceOnUse" x1="0" x2="120" y1="0" y2="0"><stop offset=".96" stop-color="#E2C47F"/><stop offset=".96" stop-color="rgba(217,189,122,.25)"/></linearGradient></defs><g fill="url(#rating-fill)"><path d="M12 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M36 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M60 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M84 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M108 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/></g></svg>
-      <p><b>4.8/5</b> en las primeras valoraciones de la comunidad</p>
+      <p><b>4.8/5</b> · 31 valoraciones de la comunidad</p>
     </div>
     <p class="lead reveal">Capturas sin editar. Solo he recortado sus fotos de perfil.</p>
 
@@ -967,6 +984,16 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
         <span class="vtag">Bootcamp presencial</span>
         <blockquote>En esos días pude hacer cierre de beso y cierres de teléfono.</blockquote>
         <img src="img/testimonio-4.webp" width="722" height="389" loading="lazy" decoding="async" alt="Mensaje de Lenin: «Me encantó la mentoría, salimos 3 días, de día y de noche. En mi caso, tenía problemas con el rechazo. En esos días pude hacer cierre de beso y cierres de teléfono. ¡Lo recomiendo mucho!»">
+        <div class="va" data-audio>
+          <button type="button" class="va-play" aria-label="Escuchar el audio de Lenin"><svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M6.5 4.2l9.2 5.8-9.2 5.8z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 4h3.2v12H5.5zM11.3 4h3.2v12h-3.2z" fill="currentColor"/></svg></button>
+          <div class="va-wave" aria-hidden="true"><i style="--h:90%"></i><i style="--h:39%"></i><i style="--h:91%"></i><i style="--h:80%"></i><i style="--h:77%"></i><i style="--h:100%"></i><i style="--h:54%"></i><i style="--h:98%"></i><i style="--h:21%"></i><i style="--h:95%"></i><i style="--h:96%"></i><i style="--h:90%"></i><i style="--h:76%"></i><i style="--h:93%"></i><i style="--h:63%"></i><i style="--h:95%"></i><i style="--h:63%"></i><i style="--h:18%"></i><i style="--h:98%"></i><i style="--h:91%"></i><i style="--h:90%"></i><i style="--h:77%"></i><i style="--h:20%"></i><i style="--h:86%"></i><i style="--h:83%"></i><i style="--h:95%"></i><i style="--h:90%"></i><i style="--h:63%"></i><i style="--h:68%"></i><i style="--h:73%"></i><i style="--h:18%"></i><i style="--h:87%"></i><i style="--h:42%"></i><i style="--h:93%"></i><i style="--h:82%"></i><i style="--h:18%"></i></div>
+          <span class="va-time">0:25</span>
+          <audio src="media/lenin-audio.m4a" preload="none"></audio>
+        </div>
+        <details class="va-text">
+          <summary>Leer lo que dice en el audio</summary>
+          <p>«Muy buenas, gente. Desde aquí quería recomendar muchísimo la mentoría de Wonder. A mí me ha encantado: salimos por la noche, por el día, hice cierre de beso, varios cierres de teléfono… Con él pude conocer a muchísima gente del entorno, me encantó. Si alguno tiene problemas con la aproximación y con el rechazo, que era mi caso, lo recomiendo muchísimo.»</p>
+        </details>
         <figcaption><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.2l2.4 2.4 4.6-4.8"/></svg><span><b>Lenin</b> hizo conmigo el bootcamp presencial: salimos juntos 3 días. Es el mismo método del manual, aplicado en persona.</span></figcaption>
       </figure>
     </div>
@@ -1000,7 +1027,11 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
         <small>Precio de lanzamiento</small>
         <span class="price-big gold">$7</span>
         <p class="price-sub">Pago único. Sin suscripciones.</p>
-        <p class="launch-note">Sube a <b>$27</b> al llegar a las primeras 100 ventas.</p>
+        <div class="stock">
+          <div class="stock-top"><span><b data-vendidas>86</b> de 100 vendidas</span><span>Quedan <b data-quedan>14</b> a $7</span></div>
+          <div class="stock-bar"><i data-stock-bar style="width:86%"></i></div>
+          <p>Al llegar a 100 sube a <b>$27</b>.</p>
+        </div>
         <p class="price-note">Precio en dólares: al pagar lo verás en tu moneda.</p>
         <p class="why"><b>¿Por qué solo $7?</b> Es el precio de lanzamiento: quiero que los primeros 100 lo prueben sin pensárselo y me cuenten cómo les fue. Al llegar a 100 ventas, sube a $27.</p>
         <a class="cta" id="offer-cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout><span>Sí, lo quiero ya <span class="arrow">→</span></span><span class="price">$7</span></a>
@@ -1051,6 +1082,10 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
       <details name="faq">
         <summary>¿Y si me rechaza el Día 2?<i aria-hidden="true"></i></summary>
         <div class="ans"><p>Entonces el Día 2 te ha salido bien. Su objetivo no es que te diga que sí: es que vayas. Un «no» es parte del entrenamiento, y el bonus Blindaje anti-rechazo te dice qué hacer con cada tipo de «no» para que te haga más fuerte.</p></div>
+      </details>
+      <details name="faq">
+        <summary>¿Qué aparece en el extracto de mi tarjeta?<i aria-hidden="true"></i></summary>
+        <div class="ans"><p>Un cargo de Hotmart, la plataforma de pago, con el nombre «WONDERSOCIALS» (según tu banco, algo como HTM*WONDERSOCIALS). El título del manual no aparece.</p></div>
       </details>
       <details name="faq">
         <summary>¿Cómo pago y en qué moneda?<i aria-hidden="true"></i></summary>
@@ -1108,7 +1143,7 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
 
 <div class="sticky" id="sticky" aria-hidden="true">
   <div class="wrap">
-    <div class="sticky-info"><b>Manual + 5 bonus</b><small>Precio de lanzamiento</small></div>
+    <div class="sticky-info"><b>Manual + 5 bonus</b><small>Quedan <span data-quedan>14</span> a $7</small></div>
     <a class="cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout tabindex="-1"><span>Lo quiero <span class="arrow">→</span></span><span class="price">$7</span></a>
   </div>
 </div>
@@ -1119,10 +1154,20 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
    Si lo cambias, cámbialo también en el href de los 5 botones [data-checkout]. */
 const CHECKOUT_URL = "https://pay.hotmart.com/W108005367T?checkoutMode=10&hideBillet=1";
 
+/* Copias vendidas a precio de lanzamiento: cambia SOLO este número.
+   La página calcula sola las que quedan. Al llegar a 100, sube el precio en Hotmart y quita el lanzamiento. */
+const VENTAS_LANZAMIENTO = 86;
+
 document.documentElement.classList.add("js");
 if (CHECKOUT_URL) {
   document.querySelectorAll("[data-checkout]").forEach(a => { a.href = CHECKOUT_URL; });
 }
+(function () {
+  const vendidas = Math.min(100, Math.max(0, VENTAS_LANZAMIENTO));
+  document.querySelectorAll("[data-quedan]").forEach(el => { el.textContent = 100 - vendidas; });
+  document.querySelectorAll("[data-vendidas]").forEach(el => { el.textContent = vendidas; });
+  document.querySelectorAll("[data-stock-bar]").forEach(el => { el.style.width = vendidas + "%"; });
+})();
 
 /* Aviso de cookies: el píxel de Meta y la API de conversiones solo se activan tras «Aceptar». */
 (function () {
@@ -1155,6 +1200,31 @@ if (CHECKOUT_URL) {
   try { saved = localStorage.getItem(KEY); } catch (err) {}
   if (!saved) show();
 })();
+
+/* Audio de Lenin: reproductor tipo nota de voz */
+document.querySelectorAll("[data-audio]").forEach(box => {
+  const audio = box.querySelector("audio");
+  const btn = box.querySelector(".va-play");
+  const bars = [...box.querySelectorAll(".va-wave i")];
+  const time = box.querySelector(".va-time");
+  const total = time.textContent;
+  const fmt = t => Math.floor(t / 60) + ":" + String(Math.floor(t % 60)).padStart(2, "0");
+  btn.addEventListener("click", () => { if (audio.paused) audio.play(); else audio.pause(); });
+  audio.addEventListener("play", () => { box.classList.add("playing"); btn.setAttribute("aria-label", "Pausar el audio de Lenin"); });
+  audio.addEventListener("pause", () => { box.classList.remove("playing"); btn.setAttribute("aria-label", "Escuchar el audio de Lenin"); });
+  audio.addEventListener("timeupdate", () => {
+    const p = audio.duration ? audio.currentTime / audio.duration : 0;
+    bars.forEach((b, i) => b.classList.toggle("on", (i + 0.5) / bars.length <= p));
+    time.textContent = audio.currentTime ? fmt(audio.currentTime) : total;
+  });
+  audio.addEventListener("ended", () => { audio.currentTime = 0; time.textContent = total; });
+  box.querySelector(".va-wave").addEventListener("click", e => {
+    const r = e.currentTarget.getBoundingClientRect();
+    const seek = () => { audio.currentTime = (e.clientX - r.left) / r.width * audio.duration; };
+    if (audio.duration) seek(); else audio.addEventListener("loadedmetadata", seek, { once: true });
+    if (audio.paused) audio.play();
+  });
+});
 
 /* Meta: clic en cualquier botón de compra */
 document.querySelectorAll("[data-checkout]").forEach(a => {
