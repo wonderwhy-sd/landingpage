@@ -189,11 +189,11 @@ em{font-style:italic}
   background:rgba(10,23,16,.55);
 }
 .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:58px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand{display:flex;align-items:center;gap:10px;min-height:44px;text-decoration:none}
 .brand-mark{
   flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
-  font-family:var(--f-label);font-weight:700;font-size:1rem;color:var(--forest);
-  background:var(--gold-grad);box-shadow:0 0 0 1px rgba(0,0,0,.4), 0 0 0 3px rgba(217,189,122,.25);
+  font-family:var(--f-label);font-weight:700;font-size:1rem;color:var(--gold-hi);
+  background:rgba(217,189,122,.06);box-shadow:inset 0 0 0 1.5px var(--gold), 0 0 0 3px rgba(217,189,122,.12);
 }
 .brand-name{font-family:var(--f-label);font-weight:700;letter-spacing:.22em;font-size:.78rem;color:var(--gold)}
 .topbar-note{
@@ -227,12 +227,17 @@ em{font-style:italic}
 }
 .hero h1 em{display:block;font-weight:500}
 .hero-sub{font-size:1.2rem;line-height:1.5;color:var(--muted);max-width:40ch;margin:0 0 14px}
+.diff{display:flex;align-items:center;gap:12px;max-width:40ch;margin:0 0 22px;font-size:1.06rem;line-height:1.4;color:var(--muted)}
+.diff b{color:var(--cream)}
+.diff-zero{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:600;font-size:1.5rem;line-height:1;color:var(--gold-hi);box-shadow:inset 0 0 0 1.5px var(--gold)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .badge{
   display:inline-flex;align-items:center;gap:8px;margin:0 0 12px;padding:5px 12px 5px 9px;border-radius:99px;
   border:1px solid rgba(217,189,122,.38);background:rgba(217,189,122,.08);
   font-size:.82rem;line-height:1.3;color:var(--cream)
 }
-.badge{text-decoration:none}
+.badge{position:relative;text-decoration:none}
+.badge::after{content:"";position:absolute;inset:-8px -4px} /* zona táctil de 44 px sin agrandar la pastilla */
 .badge .badge-stars{width:64px;height:auto;flex:none}
 .badge b{color:var(--gold-hi)}
 @media (max-width:420px){.badge-brand{display:none}}
@@ -298,6 +303,28 @@ em{font-style:italic}
   padding:22px 16px 16px;
 }
 .cover.stitch::before{inset:7px}
+.pages{position:relative;flex:1;margin:10px}
+.pages .pg{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .6s ease}
+.pages .pg.is-on{opacity:1}
+.pg-day{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px 14px;border-radius:6px;overflow:hidden}
+.pg-kick{font-family:var(--f-label);font-weight:700;font-size:.55rem;letter-spacing:.5em;color:var(--stone);text-transform:uppercase}
+.pg-num{font-family:var(--f-display);font-weight:600;font-size:3.4rem;line-height:1}
+.pg-title{font-family:var(--f-display);font-size:1.2rem;color:var(--cream);margin:2px 0 12px}
+.pg-day p{margin:0 0 8px;font-size:.66rem;line-height:1.4;color:var(--cream)}
+.pg-day .pg-goal{margin:0;font-size:.6rem;color:var(--stone)}
+.pg-day .pg-goal b{color:var(--gold)}
+.pg-mission{display:flex;flex-direction:column;padding:14px 11px 12px;border-radius:6px;background:var(--paper);color:var(--text-dark)}
+.pg-head{margin-bottom:9px;font-family:var(--f-label);font-weight:700;font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze)}
+.ladder{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.ladder li{display:flex;align-items:flex-start;gap:8px;padding:6px 7px;border-radius:5px;background:rgba(23,33,26,.06);transition:background .3s ease}
+.ladder i{position:relative;flex:none;width:13px;height:13px;margin-top:1px;border-radius:3px;border:1.5px solid var(--bronze);transition:background .25s ease,border-color .25s ease}
+.ladder i::after{content:"";position:absolute;left:3px;top:0;width:4px;height:8px;border:solid var(--cream);border-width:0 2px 2px 0;transform:rotate(45deg) scale(0);transition:transform .25s ease}
+.ladder li.done{background:rgba(43,98,67,.12)}
+.ladder li.done i{background:var(--leaf);border-color:var(--leaf)}
+.ladder li.done i::after{transform:rotate(45deg) scale(1)}
+.ladder span{font-size:.6rem;line-height:1.3;color:#4A5246}
+.ladder b{display:block;font-weight:600;font-size:.7rem;line-height:1.2;color:var(--text-dark)}
+.pg-foot{margin-top:auto;font-style:italic;font-size:.62rem;text-align:center;color:var(--bronze)}
 .cover-brand{font-family:var(--f-label);font-weight:700;font-size:.5rem;letter-spacing:.3em;color:var(--gold);opacity:.9}
 .cover-mark{margin:12px 0 6px;width:34px;height:34px}
 .cover-kick{font-family:var(--f-label);font-size:.46rem;letter-spacing:.26em;color:var(--stone);text-transform:uppercase;margin-bottom:8px}
@@ -337,7 +364,7 @@ em{font-style:italic}
 .seal svg{width:100%;height:100%;animation:spin 38s linear infinite}
 .seal-core{
   position:absolute;inset:23px;border-radius:50%;display:grid;place-items:center;text-align:center;
-  background:var(--gold-grad);color:var(--forest);box-shadow:0 0 0 1px rgba(0,0,0,.35), 0 10px 20px rgba(0,0,0,.35);
+  background:var(--forest);color:var(--gold-hi);box-shadow:inset 0 0 0 1.5px var(--gold), 0 10px 20px rgba(0,0,0,.35);
   font-family:var(--f-display);font-style:italic;font-weight:700;font-size:1.15rem;line-height:1
 }
 .seal-core small{display:block;font-family:var(--f-label);font-style:normal;font-size:.42rem;letter-spacing:.2em;margin-top:3px}
@@ -513,8 +540,8 @@ section{position:relative}
 .voice blockquote::before{content:"«";color:var(--gold)}
 .voice blockquote::after{content:"»";color:var(--gold)}
 .voice img{width:100%;height:auto;border-block:1px solid rgba(243,236,220,.08)}
-.voice figcaption{display:flex;align-items:flex-start;gap:8px;margin-top:12px;font-size:1rem;line-height:1.45;color:var(--muted)}
-.voice figcaption svg{flex:none;width:18px;height:18px;margin-top:.15em;color:var(--calm)}
+.voice figcaption{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:1rem;line-height:1.45;color:var(--muted)}
+.vav{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:600;font-size:1.1rem;color:var(--gold-hi);background:rgba(217,189,122,.08);box-shadow:inset 0 0 0 1px rgba(217,189,122,.5)}
 .vtag{
   display:inline-block;margin-bottom:12px;padding:5px 11px;border-radius:999px;border:1px solid rgba(157,191,159,.45);
   font-family:var(--f-label);font-weight:700;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--calm)
@@ -524,7 +551,7 @@ section{position:relative}
 .rating p{margin:0;font-size:1.04rem;line-height:1.4;color:var(--muted)}
 .rating b{color:var(--gold-hi)}
 .va{display:flex;align-items:center;gap:12px;margin-top:14px;padding:8px 14px 8px 8px;border-radius:999px;background:rgba(0,0,0,.28);border:1px solid rgba(217,189,122,.22)}
-.va-play{flex:none;width:42px;height:42px;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer;background:var(--gold-grad);color:var(--forest)}
+.va-play{flex:none;width:44px;height:44px;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer;background:rgba(217,189,122,.1);color:var(--gold-hi);box-shadow:inset 0 0 0 1.5px var(--gold)}
 .va-play:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
 .va-play svg{width:18px;height:18px}
 .va-play .i-pause,.va.playing .i-play{display:none}
@@ -534,7 +561,7 @@ section{position:relative}
 .va-wave i.on{background:var(--gold)}
 .va-time{flex:none;min-width:2.4em;text-align:right;font-size:.88rem;color:var(--muted);font-variant-numeric:tabular-nums}
 .va-text{margin-top:8px;font-size:.98rem;color:var(--muted)}
-.va-text summary{cursor:pointer;color:var(--gold);font-size:.95rem}
+.va-text summary{padding:10px 0;cursor:pointer;color:var(--gold);font-size:.95rem}
 .va-text p{margin:8px 0 0;font-style:italic;line-height:1.5}
 .vnote{max-width:62ch;margin:4px auto 0;font-size:.95rem;line-height:1.5;color:rgba(243,236,220,.62)}
 
@@ -556,7 +583,7 @@ section{position:relative}
 @media (min-width:640px){.card{padding:54px 50px 40px}}
 .card-ribbon{
   position:absolute;top:-15px;left:50%;transform:translateX(-50%);white-space:nowrap;
-  padding:8px 18px;border-radius:99px;background:var(--gold-grad);color:var(--forest);
+  padding:8px 18px;border-radius:99px;background:var(--forest);color:var(--gold-hi);border:1px solid var(--gold);
   font-family:var(--f-label);font-weight:700;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;
   box-shadow:0 6px 14px rgba(0,0,0,.35)
 }
@@ -596,10 +623,10 @@ section{position:relative}
 @media (max-width:520px){.guarantee{grid-template-columns:1fr;justify-items:center;text-align:center;padding:26px 22px}}
 .g-seal{
   position:relative;width:100px;height:100px;border-radius:50%;display:grid;place-content:center;text-align:center;
-  background:var(--gold-grad);color:var(--forest);
-  box-shadow:0 0 0 5px rgba(217,189,122,.18), inset 0 0 0 2px rgba(255,255,255,.35), 0 14px 26px -10px rgba(0,0,0,.7)
+  background:var(--forest);color:var(--gold-hi);
+  box-shadow:inset 0 0 0 1.5px var(--gold), 0 0 0 5px rgba(217,189,122,.12), 0 14px 26px -10px rgba(0,0,0,.7)
 }
-.g-seal svg{position:absolute;inset:16px;width:68px;height:68px;color:rgba(16,37,26,.16)}
+.g-seal svg{position:absolute;inset:16px;width:68px;height:68px;color:rgba(217,189,122,.14)}
 .g-seal b{position:relative;font-family:var(--f-display);font-weight:700;font-size:2.6rem;line-height:.85}
 .g-seal small{position:relative;font-family:var(--f-label);font-weight:700;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase}
 .guarantee h3{font-family:var(--f-body);font-weight:600;font-size:1.45rem;line-height:1.2;margin:0 0 6px;color:var(--cream);letter-spacing:0}
@@ -633,8 +660,8 @@ section{position:relative}
 footer{padding:40px 0 120px;background:var(--ink);border-top:1px solid rgba(217,189,122,.12);font-size:.92rem;color:rgba(243,236,220,.55)}
 footer .wrap{display:grid;gap:16px}
 footer .brand-name{font-size:.76rem;letter-spacing:.12em}
-footer nav{display:flex;flex-wrap:wrap;gap:8px 20px}
-footer nav a{text-decoration:none;color:rgba(243,236,220,.66)}
+footer nav{display:flex;flex-wrap:wrap;gap:0 20px}
+footer nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;color:rgba(243,236,220,.66)}
 footer nav a:hover{color:var(--gold)}
 footer p{margin:0;max-width:80ch;line-height:1.5}
 
@@ -672,11 +699,10 @@ footer p{margin:0;max-width:80ch;line-height:1.5}
 .cookies a{color:var(--gold)}
 .cookies-btns{display:flex;gap:8px;flex:none}
 .cookies button{
-  padding:8px 16px;border-radius:999px;cursor:pointer;
+  min-height:44px;padding:8px 16px;border-radius:999px;cursor:pointer;
   font-family:var(--f-body);font-weight:600;font-size:.95rem;line-height:1.2;
   border:1px solid var(--gold);background:transparent;color:var(--cream);
 }
-.cookies button[data-consent="accepted"]{background:var(--gold);color:var(--forest)}
 .cookies button:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
 @media (max-width:600px){
   .cookies{justify-content:space-between;gap:10px;padding-left:16px;padding-right:16px}
@@ -684,7 +710,7 @@ footer p{margin:0;max-width:80ch;line-height:1.5}
   .cookies-btns{gap:6px}
   .cookies button{padding:8px 11px;font-size:.88rem}
 }
-footer button.linklike{all:unset;cursor:pointer;color:rgba(243,236,220,.66)}
+footer button.linklike{all:unset;cursor:pointer;display:inline-flex;align-items:center;min-height:44px;color:rgba(243,236,220,.66)}
 footer button.linklike:hover{color:var(--gold)}
 footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
@@ -715,7 +741,8 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
       <a class="badge rise" href="#testimonios"><svg class="badge-stars" viewBox="0 0 120 24" aria-hidden="true"><defs><linearGradient id="hero-rating-fill" gradientUnits="userSpaceOnUse" x1="0" x2="120" y1="0" y2="0"><stop offset=".96" stop-color="#E2C47F"/><stop offset=".96" stop-color="rgba(217,189,122,.25)"/></linearGradient></defs><g fill="url(#hero-rating-fill)"><path d="M12 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M36 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M60 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M84 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M108 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/></g></svg><span><b>4.8/5</b> · 31 valoraciones<span class="badge-brand"> de la comunidad</span></span></a>
       <p class="prehead rise">¿La ves, el corazón se te acelera… y te quedas quieto?</p>
       <h1 class="rise">Pierde el miedo a hablarle a la chica que te gusta <em class="gold">en 3 días.</em></h1>
-      <p class="hero-sub rise">El protocolo paso a paso que <b>instala la calma en tu cabeza</b>. Sin frases memorizadas, aunque seas tímido y con solo 1 hora al día.</p>
+      <p class="hero-sub rise">El protocolo paso a paso que <b>instala la calma en tu cabeza</b>, aunque seas tímido y con solo 1 hora al día.</p>
+      <p class="diff rise"><span class="diff-zero" aria-hidden="true">0</span><span><b><span class="sr-only">Cero </span>técnicas baratas.</b> Confianza entrenada para actuar cuando tú quieras.</span></p>
       <div class="rise">
         <a class="cta" id="hero-cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout>
           <span>Empiezo mi Día 1 <span class="arrow">→</span></span>
@@ -744,8 +771,9 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
       <div class="phone">
         <div class="screen">
           <span class="notch"></span>
-          <div class="pdfbar"><span>Manual.pdf</span><span>1 / 37</span></div>
-          <div class="cover leather stitch">
+          <div class="pdfbar"><span>Manual.pdf</span><span data-pdf-page>1 / 37</span></div>
+          <div class="pages">
+          <div class="cover pg is-on leather stitch">
             <span class="cover-brand">WONDER SOCIALS</span>
             <svg class="cover-mark" viewBox="0 0 40 40"><defs><linearGradient id="gm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7E7B6"/><stop offset=".5" stop-color="#D9BD7A"/><stop offset="1" stop-color="#9C7630"/></linearGradient></defs><path fill="url(#gm)" d="M20 2c3 4 1 6-1 8 4-1 6-4 5-7 4 4 3 10-2 13-2 1-4 2-4 4h-1c0-3 2-5 4-7-3 0-5 2-6 4-1-4 1-7 3-9 2-2 3-4 2-6zM6 22h28v2H6zM8 25h5l4 11h-2zM14 25h5l3 8 3-8h5l-6 13h-4l-2-5-2 5h-1zM27 25h5l-4 11h-2z"/></svg>
             <span class="cover-kick">Manual de acción</span>
@@ -756,6 +784,25 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
               <li><b>03</b></li>
             </ul>
             <span class="cover-foot">Protocolo de 3 días</span>
+          </div>
+          <div class="pg pg-day leather">
+            <span class="pg-kick">Día</span>
+            <span class="pg-num gold">01</span>
+            <span class="pg-title">Despertar</span>
+            <p>Hoy no hay ninguna mujer en la ecuación. Vas a hablar con el mundo.</p>
+            <p class="pg-goal"><b>Objetivo:</b> demostrarle a tu cerebro que hablar con desconocidos no tiene consecuencias.</p>
+          </div>
+          <div class="pg pg-mission">
+            <span class="pg-head">Misión del Día 1 · Escalera</span>
+            <ol class="ladder">
+              <li><i></i><span><b>10 saludos</b>«Hola» mirando a los ojos</span></li>
+              <li><i></i><span><b>5 preguntas</b>La hora, una dirección…</span></li>
+              <li><i></i><span><b>3 comentarios</b>Sobre algo del entorno</span></li>
+              <li><i></i><span><b>1 conversación</b>De 2 minutos, con quien sea</span></li>
+              <li><i></i><span><b>20 minutos a solas</b>En un café, sin móvil</span></li>
+            </ol>
+            <span class="pg-foot">Cuenta el intento, no el resultado.</span>
+          </div>
           </div>
         </div>
       </div>
@@ -967,17 +1014,17 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
       <figure class="voice reveal">
         <blockquote>Esta semana por fin me animé a hacerlo.</blockquote>
         <img src="img/testimonio-1.webp" width="990" height="734" loading="lazy" decoding="async" alt="Mensaje de Arturo: «Wonder, de verdad, gracias por los consejos. Llevaba tiempo queriendo atreverme a hablar con una chica que me gustaba y siempre acababa yéndome a casa pensando en que tendría que haberlo intentado. Esta semana por fin me animé a hacerlo y la sensación ha sido increíble jajaja. Me ha ayudado mucho lo que me has enseñado, de verdad.»">
-        <figcaption><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.2l2.4 2.4 4.6-4.8"/></svg><span><b>Arturo</b> · lector del manual, beta tester</span></figcaption>
+        <figcaption><span class="vav" aria-hidden="true">A</span><span><b>Arturo</b> · lector del manual, beta tester</span></figcaption>
       </figure>
       <figure class="voice reveal">
         <blockquote>Haberme atrevido a probarlo esta semana ha sido increíble.</blockquote>
         <img src="img/testimonio-2.webp" width="1018" height="432" loading="lazy" decoding="async" alt="Mensaje de Dani: «Gracias Wonder, la verdad que siempre me sentía mal por no hablarle a la chica que me gustaba, sobre todo al volver a casa. El hecho de haberme atrevido a probarlo esta semana ha sido increíble.»">
-        <figcaption><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.2l2.4 2.4 4.6-4.8"/></svg><span><b>Dani</b> · lector del manual, beta tester</span></figcaption>
+        <figcaption><span class="vav" aria-hidden="true">D</span><span><b>Dani</b> · lector del manual, beta tester</span></figcaption>
       </figure>
       <figure class="voice reveal">
         <blockquote>Me has ayudado a ser yo. Ahora soy yo el que elige.</blockquote>
         <img src="img/testimonio-3.webp" width="980" height="556" loading="lazy" decoding="async" alt="Mensaje de Roberto: «Wonder, muchísimas gracias, que hoy la que me gustaba andaba todo el rato detrás mío y lo mejor es que todo es natural, no finjo ser nadie y me has ayudado a ser yo. Ahora soy yo el que elige, gracias hermano, que esto parece magia.»">
-        <figcaption><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.2l2.4 2.4 4.6-4.8"/></svg><span><b>Roberto</b> · lector del manual, beta tester</span></figcaption>
+        <figcaption><span class="vav" aria-hidden="true">R</span><span><b>Roberto</b> · lector del manual, beta tester</span></figcaption>
       </figure>
       <!-- Lenin hizo el bootcamp presencial, no el manual: debe quedar siempre indicado -->
       <figure class="voice reveal">
@@ -994,7 +1041,7 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
           <summary>Leer lo que dice en el audio</summary>
           <p>«Muy buenas, gente. Desde aquí quería recomendar muchísimo la mentoría de Wonder. A mí me ha encantado: salimos por la noche, por el día, hice cierre de beso, varios cierres de teléfono… Con él pude conocer a muchísima gente del entorno, me encantó. Si alguno tiene problemas con la aproximación y con el rechazo, que era mi caso, lo recomiendo muchísimo.»</p>
         </details>
-        <figcaption><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.2l2.4 2.4 4.6-4.8"/></svg><span><b>Lenin</b> hizo conmigo el bootcamp presencial: salimos juntos 3 días. Es el mismo método del manual, aplicado en persona.</span></figcaption>
+        <figcaption><span class="vav" aria-hidden="true">L</span><span><b>Lenin</b> hizo conmigo el bootcamp presencial: salimos juntos 3 días. Es el mismo método del manual, aplicado en persona.</span></figcaption>
       </figure>
     </div>
     <p class="vnote reveal"><b>Arturo, Dani y Roberto</b> son de mi comunidad y probaron el manual como beta testers antes del lanzamiento.</p>
@@ -1262,6 +1309,32 @@ document.querySelectorAll("[data-checkout]").forEach(a => {
     document.getElementById("ecg").classList.add("on");
     setTimeout(() => document.getElementById("scene").classList.add("fanned"), 900);
   });
+})();
+
+/* Maqueta del móvil: portada → apertura del Día 1 → misión con la escalera marcándose */
+(function () {
+  const pages = [...document.querySelectorAll("#scene .pg")];
+  const num = document.querySelector("[data-pdf-page]");
+  const steps = [...document.querySelectorAll("#scene .ladder li")];
+  const nums = ["1 / 37", "18 / 37", "20 / 37"];
+  const hold = [3200, 2800, 4800];
+  let timers = [];
+  const show = i => {
+    pages.forEach((pg, k) => pg.classList.toggle("is-on", k === i));
+    num.textContent = nums[i];
+    timers.forEach(clearTimeout);
+    steps.forEach(li => li.classList.remove("done"));
+    if (i === 2) timers = steps.map((li, k) => setTimeout(() => li.classList.add("done"), 500 + k * 550));
+  };
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    pages.forEach((pg, k) => pg.classList.toggle("is-on", k === 2));
+    num.textContent = nums[2];
+    steps.forEach(li => li.classList.add("done"));
+    return;
+  }
+  let i = 0;
+  const next = () => { i = (i + 1) % pages.length; show(i); setTimeout(next, hold[i]); };
+  setTimeout(next, hold[0]);
 })();
 
 /* Aparición al hacer scroll */
