@@ -109,7 +109,7 @@ em{font-style:italic}
 
 .kicker{
   display:inline-flex;align-items:center;gap:.7em;
-  font-family:var(--f-label);font-weight:700;font-size:.74rem;
+  font-family:var(--f-label);font-weight:700;font-size:.76rem;
   letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
 }
 .kicker::before{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
@@ -205,8 +205,8 @@ em{font-style:italic}
 @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(157,191,159,0)}100%{box-shadow:0 0 0 0 rgba(157,191,159,0)}}
 @media (max-width:520px){
   .topbar-note .long{display:none}
-  .brand-name{letter-spacing:.14em;font-size:.7rem}
-  .topbar-note{letter-spacing:.12em;font-size:.6rem}
+  .brand-name{letter-spacing:.1em;font-size:.76rem}
+  .topbar-note{font-family:var(--f-body);font-weight:600;font-size:.84rem;letter-spacing:0;text-transform:none}
   .brand-mark{width:30px;height:30px;font-size:.9rem}
 }
 
@@ -230,14 +230,22 @@ em{font-style:italic}
 .badge{
   display:inline-flex;align-items:center;gap:8px;margin:0 0 12px;padding:5px 12px 5px 9px;border-radius:99px;
   border:1px solid rgba(217,189,122,.38);background:rgba(217,189,122,.08);
-  font-size:.84rem;line-height:1.3;color:var(--cream)
+  font-size:.82rem;line-height:1.3;color:var(--cream)
 }
-.badge svg{width:16px;height:16px;color:var(--gold);flex:none}
+.badge{text-decoration:none}
+.badge .badge-stars{width:64px;height:auto;flex:none}
+.badge b{color:var(--gold-hi)}
+@media (max-width:370px){.badge-brand{display:none}}
+.hero-quote{display:block;max-width:40ch;margin:18px 0 0;padding:2px 0 2px 14px;border-left:2px solid var(--gold);text-decoration:none}
+.hq-text{display:block;font-style:italic;font-size:1.12rem;line-height:1.4;color:var(--cream)}
+.hq-who{display:block;margin-top:4px;font-size:.92rem;line-height:1.4;color:var(--muted)}
+.hq-who b{color:var(--cream)}
+.hq-who u{color:var(--gold);text-decoration-color:rgba(217,189,122,.55);text-underline-offset:3px}
 .launch{display:flex;align-items:flex-start;gap:8px;margin:14px 0 0;font-size:.95rem;line-height:1.4;color:var(--muted)}
 .launch svg{width:17px;height:17px;color:#E8A54B;flex:none;margin-top:1px}
 .launch b{color:var(--gold-hi)}
 .format{
-  display:flex;flex-wrap:wrap;align-items:center;gap:4px 0;margin:0 0 22px;
+  display:flex;flex-wrap:wrap;align-items:center;gap:4px 0;margin:14px 0 0;
   font-size:.9rem;line-height:1.35;color:var(--stone)
 }
 .format svg{width:18px;height:18px;color:var(--gold);margin-right:8px;flex:none}
@@ -246,8 +254,18 @@ em{font-style:italic}
   .hero-grid{grid-template-columns:1.2fr .8fr;gap:32px}
   .hero{padding-top:56px}
 }
+@media (min-width:960px) and (max-height:860px){
+  .hero{padding-top:26px}
+  .hero h1{font-size:3.5rem;margin:12px 0 14px}
+  .hero-sub{margin-bottom:18px}
+}
+@media (min-width:960px) and (max-height:700px){
+  .hero{padding-top:16px}
+  .hero h1{font-size:3rem}
+  .prehead{font-size:1.15rem;max-width:none}
+}
 
-.js .rise{opacity:0;transform:translateY(22px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+.js .rise{opacity:0;transform:translateY(8px);animation:rise .3s ease-out forwards}
 @keyframes rise{to{opacity:1;transform:none}}
 
 /* ---------- book mockup ---------- */
@@ -329,7 +347,7 @@ em{font-style:italic}
 .ecg{position:relative;margin-top:22px;padding:8px 0 30px;border-top:1px solid rgba(217,189,122,.12)}
 .ecg svg{width:100%;height:auto;overflow:hidden}
 .ecg-path{fill:none;stroke:url(#ecgGrad);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(217,189,122,.35))}
-.ecg-labels{display:flex;justify-content:space-between;margin-top:6px;font-family:var(--f-label);font-weight:700;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone)}
+.ecg-labels{display:flex;justify-content:space-between;margin-top:6px;font-family:var(--f-label);font-weight:700;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stone)}
 .ecg-labels span:first-child{color:var(--gold)}
 .ecg-labels span:last-child{color:var(--calm)}
 .ecg-note,.ecg-note-l{position:absolute;top:-8px;font-family:var(--f-body);font-style:italic;font-size:1.02rem;opacity:0}
@@ -342,7 +360,7 @@ em{font-style:italic}
 .promise ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media (min-width:860px){.promise ul{grid-template-columns:repeat(4,1fr);gap:14px}}
 .promise li{padding:18px 18px 16px;border-radius:14px;border:1px solid rgba(217,189,122,.22);background:rgba(243,236,220,.04)}
-.promise small{display:block;font-family:var(--f-label);font-weight:700;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.promise small{display:block;font-family:var(--f-label);font-weight:700;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
 .promise b{display:block;font-size:1.12rem;line-height:1.3}
 .promise .big{font-family:var(--f-display);font-size:2rem;line-height:1;font-weight:600}
 
@@ -377,7 +395,7 @@ section{position:relative}
   margin-top:24px;padding:18px 22px;border-left:2px solid var(--gold);
   font-family:var(--f-body);font-weight:500;font-size:clamp(1.25rem,3.4vw,1.5rem);line-height:1.35;min-height:3.4em;
 }
-.pain-result small{display:block;font-family:var(--f-label);font-weight:700;font-size:.62rem;letter-spacing:.2em;color:var(--gold);margin-bottom:8px;text-transform:uppercase}
+.pain-result small{display:block;font-family:var(--f-label);font-weight:700;font-size:.76rem;letter-spacing:.12em;color:var(--gold);margin-bottom:8px;text-transform:uppercase}
 
 /* story — paper */
 .story{
@@ -404,7 +422,7 @@ section{position:relative}
   font-size:clamp(2.4rem,9vw,5rem);line-height:1;color:var(--text-dark);letter-spacing:-.02em
 }
 .quote-big .q{color:var(--gold-deep)}
-.quote-cap{display:block;margin-top:16px;font-family:var(--f-label);font-style:normal;font-weight:700;font-size:.66rem;letter-spacing:.24em;color:var(--bronze);text-transform:uppercase}
+.quote-cap{display:block;margin-top:16px;font-family:var(--f-label);font-style:normal;font-weight:700;font-size:.76rem;letter-spacing:.14em;color:var(--bronze);text-transform:uppercase}
 .story-calm{margin:30px 0;padding:28px 26px;border-radius:16px}
 .story-calm p{color:var(--cream);font-family:var(--f-body);font-weight:500;font-size:clamp(1.3rem,3.6vw,1.55rem);line-height:1.4;margin:0}
 .story-calm p em{color:var(--gold-hi)}
@@ -426,7 +444,7 @@ section{position:relative}
 .sign{display:flex;align-items:flex-start;gap:16px;margin-top:26px}
 .sign .brand-mark{margin-top:2px}
 .sign-line{font-family:var(--f-display);font-style:italic;font-size:1.6rem;color:var(--leaf);line-height:1.1}
-.sign small{display:block;font-family:var(--f-label);font-weight:700;font-size:.62rem;letter-spacing:.2em;color:var(--bronze);margin-top:6px;text-transform:uppercase}
+.sign small{display:block;font-size:.9rem;color:var(--bronze);margin-top:4px}
 
 /* inside: 3 días + futuro + lo que instalas */
 .inside{background:linear-gradient(180deg,var(--forest),var(--moss) 55%,var(--forest))}
@@ -442,12 +460,12 @@ section{position:relative}
 .dayc h3{font-family:var(--f-body);font-weight:600;font-size:1.35rem;line-height:1.2;letter-spacing:0}
 .dayc p{margin:6px 0 0;font-size:1.08rem;color:var(--muted);line-height:1.45}
 .meter{grid-column:1/-1;margin-top:16px}
-.meter-top{display:flex;justify-content:space-between;font-family:var(--f-label);font-weight:700;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--stone)}
+.meter-top{display:flex;justify-content:space-between;font-size:.84rem;color:var(--stone)}
 .meter-bar{height:6px;border-radius:99px;background:rgba(243,236,220,.1);margin-top:8px;overflow:hidden}
 .meter-bar i{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--calm),var(--gold));transition:width 1.4s cubic-bezier(.2,.7,.2,1) .3s}
 .dayc.in .meter-bar i{width:var(--w)}
 .future{margin:44px 0 0;padding:30px 28px;border-radius:18px;max-width:740px}
-.future small{display:block;font-family:var(--f-label);font-weight:700;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.future small{display:block;font-family:var(--f-label);font-weight:700;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
 .future p{margin:0 0 6px;font-size:clamp(1.2rem,3.4vw,1.4rem);line-height:1.45;color:var(--cream)}
 .future p:last-child{margin:0}
 .facts-title{margin:56px 0 4px;font-family:var(--f-display);font-size:clamp(1.7rem,4.6vw,2.3rem);line-height:1.15}
@@ -474,12 +492,12 @@ section{position:relative}
   box-shadow:inset 0 0 0 1px rgba(0,0,0,.45),3px 3px 0 #CFC3A5,10px 12px 20px -6px rgba(0,0,0,.6)
 }
 @media (min-width:700px){.bnum{width:72px}}
-.bnum small{font-family:var(--f-label);font-weight:700;font-size:.42rem;letter-spacing:.2em;color:var(--gold)}
+.bnum small{font-family:var(--f-label);font-weight:700;font-size:.76rem;letter-spacing:0;color:var(--gold)}
 .bnum b{font-family:var(--f-display);font-weight:600;font-size:1.6rem;line-height:1}
 .bobj{display:block;font-family:var(--f-body);font-style:italic;font-size:1.02rem;color:var(--stone);line-height:1.3}
 .btitle{display:block;font-family:var(--f-body);font-weight:600;font-size:1.22rem;line-height:1.2;margin:4px 0 4px;color:var(--cream)}
 .bdesc{display:block;font-size:1.04rem;line-height:1.4;color:var(--muted)}
-.bfree{display:none;font-family:var(--f-label);font-weight:700;font-size:.6rem;letter-spacing:.18em;color:var(--calm);text-transform:uppercase}
+.bfree{display:none;font-family:var(--f-label);font-weight:700;font-size:.76rem;letter-spacing:.12em;color:var(--calm);text-transform:uppercase}
 @media (min-width:700px){.bfree{display:block}}
 
 /* testimonios (capturas reales) */
@@ -499,7 +517,7 @@ section{position:relative}
 .voice figcaption svg{flex:none;width:18px;height:18px;margin-top:.15em;color:var(--calm)}
 .vtag{
   display:inline-block;margin-bottom:12px;padding:5px 11px;border-radius:999px;border:1px solid rgba(157,191,159,.45);
-  font-family:var(--f-label);font-weight:700;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--calm)
+  font-family:var(--f-label);font-weight:700;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--calm)
 }
 .rating{display:flex;flex-direction:column;align-items:center;gap:6px;margin:0 auto 16px}
 .rating svg{width:136px;height:auto;filter:drop-shadow(0 1px 0 rgba(0,0,0,.5))}
@@ -526,7 +544,7 @@ section{position:relative}
 .card-ribbon{
   position:absolute;top:-15px;left:50%;transform:translateX(-50%);white-space:nowrap;
   padding:8px 18px;border-radius:99px;background:var(--gold-grad);color:var(--forest);
-  font-family:var(--f-label);font-weight:700;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  font-family:var(--f-label);font-weight:700;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;
   box-shadow:0 6px 14px rgba(0,0,0,.35)
 }
 .stack{list-style:none;padding:0;margin:0 0 24px;display:grid}
@@ -534,9 +552,9 @@ section{position:relative}
 .stack li:last-child{border-bottom:0}
 .stack svg{flex:none;width:18px;height:18px;color:var(--gold);margin-top:3px}
 .stack small{display:block;font-size:.95rem;color:var(--muted);margin-top:2px}
-.stack .tag{flex:none;margin-left:auto;align-self:center;font-family:var(--f-label);font-weight:700;font-size:.56rem;letter-spacing:.16em;color:var(--calm);text-transform:uppercase}
+.stack .tag{flex:none;margin-left:auto;align-self:center;font-family:var(--f-label);font-weight:700;font-size:.76rem;letter-spacing:.1em;color:var(--calm);text-transform:uppercase}
 .price-row{text-align:center;padding:22px 0 4px;border-top:1px solid rgba(217,189,122,.3)}
-.price-row small{font-family:var(--f-label);font-weight:700;font-size:.66rem;letter-spacing:.22em;color:var(--stone);text-transform:uppercase}
+.price-row small{font-family:var(--f-label);font-weight:700;font-size:.76rem;letter-spacing:.14em;color:var(--stone);text-transform:uppercase}
 .price-big{display:block;font-family:var(--f-display);font-weight:600;font-size:clamp(4.4rem,18vw,6.2rem);line-height:1;margin:8px 0 6px}
 .price-sub{font-size:1.05rem;color:var(--muted);margin:0 0 4px}
 .launch-note{display:inline-block;margin:6px 0 8px;padding:6px 14px;border-radius:12px;background:rgba(232,165,75,.12);border:1px solid rgba(232,165,75,.35);font-size:.95rem;color:var(--cream)}
@@ -566,7 +584,7 @@ section{position:relative}
 }
 .g-seal svg{position:absolute;inset:16px;width:68px;height:68px;color:rgba(16,37,26,.16)}
 .g-seal b{position:relative;font-family:var(--f-display);font-weight:700;font-size:2.6rem;line-height:.85}
-.g-seal small{position:relative;font-family:var(--f-label);font-weight:700;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}
+.g-seal small{position:relative;font-family:var(--f-label);font-weight:700;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase}
 .guarantee h3{font-family:var(--f-body);font-weight:600;font-size:1.45rem;line-height:1.2;margin:0 0 6px;color:var(--cream);letter-spacing:0}
 .guarantee p{margin:0;font-size:1.06rem;color:var(--muted);line-height:1.5}
 
@@ -597,7 +615,7 @@ section{position:relative}
 /* footer */
 footer{padding:40px 0 120px;background:var(--ink);border-top:1px solid rgba(217,189,122,.12);font-size:.92rem;color:rgba(243,236,220,.55)}
 footer .wrap{display:grid;gap:16px}
-footer .brand-name{font-size:.7rem}
+footer .brand-name{font-size:.76rem;letter-spacing:.12em}
 footer nav{display:flex;flex-wrap:wrap;gap:8px 20px}
 footer nav a{text-decoration:none;color:rgba(243,236,220,.66)}
 footer nav a:hover{color:var(--gold)}
@@ -609,46 +627,46 @@ footer p{margin:0;max-width:80ch;line-height:1.5}
   padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
   background:rgba(10,23,16,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   border-top:1px solid rgba(217,189,122,.25);
-  transform:translateY(110%);transition:transform .45s cubic-bezier(.2,.7,.2,1);
+  transform:translateY(110%);visibility:hidden;transition:transform .45s cubic-bezier(.2,.7,.2,1), visibility 0s .45s;
 }
-.sticky.on{transform:none}
+.sticky.on{transform:none;visibility:visible;transition:transform .45s cubic-bezier(.2,.7,.2,1), visibility 0s}
 .sticky .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0}
 .sticky-info{min-width:0;white-space:nowrap;line-height:1.15}
-.sticky-info b{display:block;font-family:var(--f-body);font-weight:600;font-size:1.05rem}
-.sticky-info small{font-family:var(--f-label);font-weight:700;font-size:.56rem;letter-spacing:.16em;color:var(--stone);text-transform:uppercase}
+.sticky-info b,.sticky-info small{display:block;overflow:hidden;text-overflow:ellipsis}
+.sticky-info b{font-family:var(--f-body);font-weight:600;font-size:1.05rem}
+.sticky-info small{font-size:.8rem;color:var(--stone)}
 .sticky .cta{flex:none;width:auto;min-height:50px;padding:6px 6px 6px 18px;font-size:.8rem;gap:10px}
 .sticky .cta .price{padding:9px 13px;font-size:1.02rem}
 @media (max-width:400px){
   .sticky-info b{font-size:.95rem}
-  .sticky-info small{font-size:.5rem;letter-spacing:.1em}
-  .sticky .cta{padding-left:14px;font-size:.74rem;letter-spacing:.05em}
+  .sticky .cta{padding-left:14px;font-size:.76rem;letter-spacing:.04em}
 }
 
 /* aviso de cookies */
 .cookies{
   position:fixed;z-index:70;left:0;right:0;bottom:0;
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 24px;
-  padding:14px var(--gutter) calc(14px + env(safe-area-inset-bottom));
+  display:flex;align-items:center;justify-content:center;gap:10px 20px;
+  padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
   background:rgba(10,23,16,.97);border-top:1px solid rgba(217,189,122,.25);
-  font-size:.95rem;line-height:1.45;color:var(--muted);
+  font-size:.92rem;line-height:1.35;color:var(--muted);
 }
 .cookies[hidden]{display:none}
-.cookies p{margin:0;max-width:64ch}
+.cookies p{margin:0;max-width:60ch}
 .cookies a{color:var(--gold)}
-.cookies-btns{display:flex;gap:10px;flex:none}
+.cookies-btns{display:flex;gap:8px;flex:none}
 .cookies button{
-  min-width:112px;padding:10px 18px;border-radius:999px;cursor:pointer;
-  font-family:var(--f-label);font-weight:700;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:8px 16px;border-radius:999px;cursor:pointer;
+  font-family:var(--f-body);font-weight:600;font-size:.95rem;line-height:1.2;
   border:1px solid var(--gold);background:transparent;color:var(--cream);
 }
 .cookies button[data-consent="accepted"]{background:var(--gold);color:var(--forest)}
 .cookies button:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
 @media (max-width:600px){
-  .cookies{justify-content:flex-start}
-  .cookies-btns{width:100%}
-  .cookies button{flex:1}
+  .cookies{justify-content:space-between;gap:10px;padding-left:16px;padding-right:16px}
+  .cookies p{font-size:.82rem}
+  .cookies-btns{gap:6px}
+  .cookies button{padding:8px 11px;font-size:.88rem}
 }
-.cookies-open .sticky.on{transform:translateY(110%)}
 footer button.linklike{all:unset;cursor:pointer;color:rgba(243,236,220,.66)}
 footer button.linklike:hover{color:var(--gold)}
 footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
@@ -677,15 +695,18 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <p class="badge rise" style="animation-delay:0s"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.2l2.4 2.4 4.6-4.9"/></svg>Probado por la comunidad de Wonder Socials</p>
-      <p class="prehead rise" style="animation-delay:.05s">¿La ves, el corazón se te acelera… y te quedas quieto?</p>
-      <h1 class="rise" style="animation-delay:.2s">Pierde el miedo a hablarle a la chica que te gusta <em class="gold">en 3 días.</em></h1>
-      <p class="hero-sub rise" style="animation-delay:.45s">El protocolo paso a paso que <b>instala la calma en tu cabeza</b>. Sin frases memorizadas, aunque seas tímido y con solo 1 hora al día.</p>
-      <p class="format rise" style="animation-delay:.52s"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5.5" y="2" width="9" height="16" rx="2"/><path d="M9 15.5h2"/></svg><span>Manual en PDF + 5 guías bonus</span><span>Se lee en el móvil</span><span>No es un curso en vídeo</span></p>
-      <div class="rise" style="animation-delay:.6s">
+      <a class="badge rise" href="#testimonios"><svg class="badge-stars" viewBox="0 0 120 24" aria-hidden="true"><defs><linearGradient id="hero-rating-fill" gradientUnits="userSpaceOnUse" x1="0" x2="120" y1="0" y2="0"><stop offset=".96" stop-color="#E2C47F"/><stop offset=".96" stop-color="rgba(217,189,122,.25)"/></linearGradient></defs><g fill="url(#hero-rating-fill)"><path d="M12 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M36 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M60 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M84 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/><path d="M108 2l2.9 6.6 7.1 .6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/></g></svg><span><b>4.8/5</b> en la comunidad<span class="badge-brand"> Wonder Socials</span></span></a>
+      <p class="prehead rise">¿La ves, el corazón se te acelera… y te quedas quieto?</p>
+      <h1 class="rise">Pierde el miedo a hablarle a la chica que te gusta <em class="gold">en 3 días.</em></h1>
+      <p class="hero-sub rise">El protocolo paso a paso que <b>instala la calma en tu cabeza</b>. Sin frases memorizadas, aunque seas tímido y con solo 1 hora al día.</p>
+      <div class="rise">
         <a class="cta" id="hero-cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout>
-          <span>Empezar hoy <span class="arrow">→</span></span>
+          <span>Empiezo mi Día 1 <span class="arrow">→</span></span>
           <span class="price">$7</span>
+        </a>
+        <a class="hero-quote" href="#testimonios">
+          <span class="hq-text">«Esta semana por fin me animé a hacerlo.»</span>
+          <span class="hq-who"><b>Arturo</b>, lector del manual · <u>Ver mensajes reales</u></span>
         </a>
         <p class="launch"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M11.2 1.5c.4 3-1.6 4.4-3 6-1.3 1.5-2.2 3-2.2 4.8A4.9 4.9 0 0010 17.2a4.9 4.9 0 004-7.7c-.3 1.4-1.1 2.3-2.2 2.6.9-2.7.5-6.6-.6-10.6z"/></svg><span><b>Precio de lanzamiento: $7.</b> Sube a $27 tras las primeras 100 ventas.</span></p>
         <ul class="trust">
@@ -693,10 +714,11 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
           <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M11 2L4 11.5h5L8 18l7-9.5h-5z"/></svg>Acceso inmediato en PDF</li>
           <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M16 10a6 6 0 11-1.8-4.3"/><path d="M16.2 3.4v3.3h-3.3"/></svg>Garantía de 7 días</li>
         </ul>
+        <p class="format"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5.5" y="2" width="9" height="16" rx="2"/><path d="M9 15.5h2"/></svg><span>Manual en PDF + 5 guías bonus</span><span>Se lee en el móvil</span><span>No es un curso en vídeo</span></p>
       </div>
     </div>
 
-    <div class="scene rise" style="animation-delay:.5s" aria-hidden="true" id="scene">
+    <div class="scene rise" style="animation-delay:.15s" aria-hidden="true" id="scene">
       <div class="booklet leather b1"><small>Bonus 01</small><span>Kit anticongelamiento</span></div>
       <div class="booklet leather b2"><small>Bonus 02</small><span>Nunca más sin palabras</span></div>
       <div class="booklet leather b3"><small>Bonus 03</small><span>Blindaje anti-rechazo</span></div>
@@ -797,9 +819,9 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
 
     <figure class="proof reveal">
       <div class="polaroids">
-        <span class="polaroid"><img src="img/prueba-1.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="Foto real del autor con una chica que conoció, con la cara de ella oculta"></span>
-        <span class="polaroid"><img src="img/prueba-2.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="Foto real del autor abrazando a una chica, con la cara de ella oculta"></span>
-        <span class="polaroid"><img src="img/prueba-3.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="Foto real del autor con una chica en un parque, con la cara de ella oculta"></span>
+        <span class="polaroid"><img src="img/prueba-1.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Foto real del autor con una chica que conoció, con la cara de ella oculta"></span>
+        <span class="polaroid"><img src="img/prueba-2.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Foto real del autor abrazando a una chica, con la cara de ella oculta"></span>
+        <span class="polaroid"><img src="img/prueba-3.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Foto real del autor con una chica en un parque, con la cara de ella oculta"></span>
       </div>
       <figcaption>Fotos reales del chico que contestó «¿qué has dicho?». <span>Sus caras están ocultas por respeto a su privacidad.</span></figcaption>
     </figure>
@@ -927,24 +949,24 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
     <div class="vgrid">
       <figure class="voice reveal">
         <blockquote>Esta semana por fin me animé a hacerlo.</blockquote>
-        <img src="img/testimonio-1.jpg" width="990" height="734" loading="lazy" decoding="async" alt="Mensaje de Arturo: «Wonder, de verdad, gracias por los consejos. Llevaba tiempo queriendo atreverme a hablar con una chica que me gustaba y siempre acababa yéndome a casa pensando en que tendría que haberlo intentado. Esta semana por fin me animé a hacerlo y la sensación ha sido increíble jajaja. Me ha ayudado mucho lo que me has enseñado, de verdad.»">
+        <img src="img/testimonio-1.webp" width="990" height="734" loading="lazy" decoding="async" alt="Mensaje de Arturo: «Wonder, de verdad, gracias por los consejos. Llevaba tiempo queriendo atreverme a hablar con una chica que me gustaba y siempre acababa yéndome a casa pensando en que tendría que haberlo intentado. Esta semana por fin me animé a hacerlo y la sensación ha sido increíble jajaja. Me ha ayudado mucho lo que me has enseñado, de verdad.»">
         <figcaption><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.2l2.4 2.4 4.6-4.8"/></svg><span><b>Arturo</b> · lector del manual, beta tester</span></figcaption>
       </figure>
       <figure class="voice reveal">
         <blockquote>Haberme atrevido a probarlo esta semana ha sido increíble.</blockquote>
-        <img src="img/testimonio-2.jpg" width="1018" height="432" loading="lazy" decoding="async" alt="Mensaje de Dani: «Gracias Wonder, la verdad que siempre me sentía mal por no hablarle a la chica que me gustaba, sobre todo al volver a casa. El hecho de haberme atrevido a probarlo esta semana ha sido increíble.»">
+        <img src="img/testimonio-2.webp" width="1018" height="432" loading="lazy" decoding="async" alt="Mensaje de Dani: «Gracias Wonder, la verdad que siempre me sentía mal por no hablarle a la chica que me gustaba, sobre todo al volver a casa. El hecho de haberme atrevido a probarlo esta semana ha sido increíble.»">
         <figcaption><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.2l2.4 2.4 4.6-4.8"/></svg><span><b>Dani</b> · lector del manual, beta tester</span></figcaption>
       </figure>
       <figure class="voice reveal">
         <blockquote>Me has ayudado a ser yo. Ahora soy yo el que elige.</blockquote>
-        <img src="img/testimonio-3.jpg" width="980" height="556" loading="lazy" decoding="async" alt="Mensaje de Roberto: «Wonder, muchísimas gracias, que hoy la que me gustaba andaba todo el rato detrás mío y lo mejor es que todo es natural, no finjo ser nadie y me has ayudado a ser yo. Ahora soy yo el que elige, gracias hermano, que esto parece magia.»">
+        <img src="img/testimonio-3.webp" width="980" height="556" loading="lazy" decoding="async" alt="Mensaje de Roberto: «Wonder, muchísimas gracias, que hoy la que me gustaba andaba todo el rato detrás mío y lo mejor es que todo es natural, no finjo ser nadie y me has ayudado a ser yo. Ahora soy yo el que elige, gracias hermano, que esto parece magia.»">
         <figcaption><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.2l2.4 2.4 4.6-4.8"/></svg><span><b>Roberto</b> · lector del manual, beta tester</span></figcaption>
       </figure>
       <!-- Lenin hizo el bootcamp presencial, no el manual: debe quedar siempre indicado -->
       <figure class="voice reveal">
         <span class="vtag">Bootcamp presencial</span>
         <blockquote>En esos días pude hacer cierre de beso y cierres de teléfono.</blockquote>
-        <img src="img/testimonio-4.jpg" width="722" height="389" loading="lazy" decoding="async" alt="Mensaje de Lenin: «Me encantó la mentoría, salimos 3 días, de día y de noche. En mi caso, tenía problemas con el rechazo. En esos días pude hacer cierre de beso y cierres de teléfono. ¡Lo recomiendo mucho!»">
+        <img src="img/testimonio-4.webp" width="722" height="389" loading="lazy" decoding="async" alt="Mensaje de Lenin: «Me encantó la mentoría, salimos 3 días, de día y de noche. En mi caso, tenía problemas con el rechazo. En esos días pude hacer cierre de beso y cierres de teléfono. ¡Lo recomiendo mucho!»">
         <figcaption><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.2l2.4 2.4 4.6-4.8"/></svg><span><b>Lenin</b> hizo conmigo el bootcamp presencial: salimos juntos 3 días. Es el mismo método del manual, aplicado en persona.</span></figcaption>
       </figure>
     </div>
@@ -1026,6 +1048,18 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
         <summary>¿Cuánto tiempo necesito y cómo lo recibo?<i aria-hidden="true"></i></summary>
         <div class="ans"><p>20 minutos de lectura y 1 hora fuera de casa al día. Nada más pagar te llega a tu email: lo lees en el móvil y empiezas hoy.</p></div>
       </details>
+      <details name="faq">
+        <summary>¿Y si me rechaza el Día 2?<i aria-hidden="true"></i></summary>
+        <div class="ans"><p>Entonces el Día 2 te ha salido bien. Su objetivo no es que te diga que sí: es que vayas. Un «no» es parte del entrenamiento, y el bonus Blindaje anti-rechazo te dice qué hacer con cada tipo de «no» para que te haga más fuerte.</p></div>
+      </details>
+      <details name="faq">
+        <summary>¿Cómo pago y en qué moneda?<i aria-hidden="true"></i></summary>
+        <div class="ans"><p>En la página segura de Hotmart, con tarjeta de crédito o débito o con los demás métodos que Hotmart tenga en tu país. El precio es $7 USD y antes de pagar lo ves convertido a tu moneda. Es un pago único, sin suscripciones.</p></div>
+      </details>
+      <details name="faq">
+        <summary>¿Sirve en mi país? ¿Hay edad mínima?<i aria-hidden="true"></i></summary>
+        <div class="ans"><p>Sirve en cualquier ciudad y país: el método trabaja sobre lo que pasa en tu cabeza, no sobre el sitio. Está en español y es para mayores de 18 años.</p></div>
+      </details>
     </div>
   </div>
 </section>
@@ -1036,7 +1070,7 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
     <span class="kicker reveal">Lo difícil nunca fue la conversación</span>
     <h2 class="reveal">El miedo no se va esperando. <em class="gold">Se va actuando.</em></h2>
     <p class="reveal">La próxima vez que la veas puedes volver a quedarte quieto. O puedes llevar 3 días de protocolo instalado. Empieza hoy, por menos que una copa.</p>
-    <div class="reveal"><a class="cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout><span>Empezar hoy <span class="arrow">→</span></span><span class="price">$7</span></a></div>
+    <div class="reveal"><a class="cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout><span>Empiezo mi Día 1 <span class="arrow">→</span></span><span class="price">$7</span></a></div>
     <div class="reveal"><ul class="trust">
           <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M10 2l6 2.5v5c0 4-2.6 6.9-6 8.5-3.4-1.6-6-4.5-6-8.5v-5z"/><rect x="7.2" y="9" width="5.6" height="4.4" rx="1"/><path d="M8.4 9V7.7a1.6 1.6 0 013.2 0V9"/></svg>Pago seguro con Hotmart</li>
           <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M11 2L4 11.5h5L8 18l7-9.5h-5z"/></svg>Acceso inmediato en PDF</li>
@@ -1065,7 +1099,7 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
 </footer>
 
 <div class="cookies" id="cookies" role="region" aria-label="Aviso de cookies" hidden>
-  <p>Usamos cookies propias y de terceros (Meta) para medir las visitas y mejorar nuestros anuncios. Puedes aceptarlas o rechazarlas. <a href="cookies.html">Más información</a></p>
+  <p>Cookies de Meta para medir nuestros anuncios. <a href="cookies.html">Más info</a></p>
   <div class="cookies-btns">
     <button type="button" data-consent="rejected">Rechazar</button>
     <button type="button" data-consent="accepted">Aceptar</button>
@@ -1075,7 +1109,7 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
 <div class="sticky" id="sticky" aria-hidden="true">
   <div class="wrap">
     <div class="sticky-info"><b>Manual + 5 bonus</b><small>Precio de lanzamiento</small></div>
-    <a class="cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout tabindex="-1"><span>Empezar ahora <span class="arrow">→</span></span><span class="price">$7</span></a>
+    <a class="cta" href="https://pay.hotmart.com/W108005367T?checkoutMode=10&amp;hideBillet=1" data-checkout tabindex="-1"><span>Lo quiero <span class="arrow">→</span></span><span class="price">$7</span></a>
   </div>
 </div>
 
@@ -1187,19 +1221,33 @@ document.querySelectorAll("[data-checkout]").forEach(a => {
   }));
 })();
 
-/* Barra fija de compra: siempre visible al hacer scroll, salvo mientras se ve el botón de la portada */
+/* Barra fija de compra: aparece siempre que no se vea entero ningún botón de compra de la página
+   (también en la primera pantalla) y se coloca encima del aviso de cookies mientras está abierto. */
 (function () {
   const sticky = document.getElementById("sticky");
-  const hero = document.getElementById("hero-cta");
-  let heroVisible = true;
+  const bar = document.getElementById("cookies");
+  const ctas = [...document.querySelectorAll("main [data-checkout]")];
+  let queued = false;
   const update = () => {
-    const on = !heroVisible;
+    queued = false;
+    const barH = bar.hidden ? 0 : bar.offsetHeight;
+    sticky.style.bottom = barH + "px";
+    const limit = innerHeight - barH;
+    const ctaInView = ctas.some(a => {
+      const r = a.getBoundingClientRect();
+      return r.height > 0 && r.top >= 0 && r.bottom <= limit;
+    });
+    const on = !ctaInView;
     sticky.classList.toggle("on", on);
     sticky.setAttribute("aria-hidden", !on);
     sticky.querySelector("a").tabIndex = on ? 0 : -1;
   };
-  if (!("IntersectionObserver" in window)) return;
-  new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting || e.boundingClientRect.top > 0; update(); }).observe(hero);
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+  addEventListener("scroll", queue, { passive: true });
+  addEventListener("resize", queue);
+  new MutationObserver(queue).observe(bar, { attributes: true, attributeFilter: ["hidden"] });
+  if (document.fonts) document.fonts.ready.then(queue); // las fuentes cambian la altura del aviso y del hero
+  update();
 })();
 </script>
 </body>
