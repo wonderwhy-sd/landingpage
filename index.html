@@ -245,7 +245,7 @@ em{font-style:italic}
 .hq-text{display:block;font-style:italic;font-size:1.12rem;line-height:1.4;color:var(--cream)}
 .hq-who{display:block;margin-top:4px;font-size:.92rem;line-height:1.4;color:var(--muted)}
 .hq-who b{color:var(--cream)}
-.hq-who u{color:var(--gold);text-decoration-color:rgba(217,189,122,.55);text-underline-offset:3px}
+.hq-who u{display:block;margin-top:2px;color:var(--gold);text-decoration-color:rgba(217,189,122,.55);text-underline-offset:3px}
 .launch{display:flex;align-items:flex-start;gap:8px;margin:14px 0 0;font-size:.95rem;line-height:1.4;color:var(--muted)}
 .launch svg{width:17px;height:17px;color:#E8A54B;flex:none;margin-top:1px}
 .launch b{color:var(--gold-hi)}
@@ -541,6 +541,7 @@ section{position:relative}
 .voice blockquote::after{content:"»";color:var(--gold)}
 .voice img{width:100%;height:auto;border-block:1px solid rgba(243,236,220,.08)}
 .voice figcaption{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:1rem;line-height:1.45;color:var(--muted)}
+.vrole{display:block;font-size:.92rem;color:rgba(243,236,220,.66)}
 .vav{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:600;font-size:1.1rem;color:var(--gold-hi);background:rgba(217,189,122,.08);box-shadow:inset 0 0 0 1px rgba(217,189,122,.5)}
 .vtag{
   display:inline-block;margin-bottom:12px;padding:5px 11px;border-radius:999px;border:1px solid rgba(157,191,159,.45);
@@ -750,7 +751,7 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
         </a>
         <a class="hero-quote" href="#testimonios">
           <span class="hq-text">«Esta semana por fin me animé a hacerlo.»</span>
-          <span class="hq-who"><b>Arturo</b>, lector del manual · <u>Ver mensajes reales</u></span>
+          <span class="hq-who"><b>Arturo M.</b>, 22 años, Madrid · lector del manual<u>Ver mensajes reales</u></span>
         </a>
         <p class="launch"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M11.2 1.5c.4 3-1.6 4.4-3 6-1.3 1.5-2.2 3-2.2 4.8A4.9 4.9 0 0010 17.2a4.9 4.9 0 004-7.7c-.3 1.4-1.1 2.3-2.2 2.6.9-2.7.5-6.6-.6-10.6z"/></svg><span><b>Precio de lanzamiento: $7.</b> Quedan <b data-quedan>14</b> de 100 copias; después sube a $27.</span></p>
         <ul class="trust">
@@ -1014,17 +1015,17 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
       <figure class="voice reveal">
         <blockquote>Esta semana por fin me animé a hacerlo.</blockquote>
         <img src="img/testimonio-1.webp" width="990" height="734" loading="lazy" decoding="async" alt="Mensaje de Arturo: «Wonder, de verdad, gracias por los consejos. Llevaba tiempo queriendo atreverme a hablar con una chica que me gustaba y siempre acababa yéndome a casa pensando en que tendría que haberlo intentado. Esta semana por fin me animé a hacerlo y la sensación ha sido increíble jajaja. Me ha ayudado mucho lo que me has enseñado, de verdad.»">
-        <figcaption><span class="vav" aria-hidden="true">A</span><span><b>Arturo</b> · lector del manual, beta tester</span></figcaption>
+        <figcaption><span class="vav" aria-hidden="true">A</span><span><b>Arturo M.</b>, 22 años, Madrid<span class="vrole">Lector del manual · beta tester</span></span></figcaption>
       </figure>
       <figure class="voice reveal">
         <blockquote>Haberme atrevido a probarlo esta semana ha sido increíble.</blockquote>
         <img src="img/testimonio-2.webp" width="1018" height="432" loading="lazy" decoding="async" alt="Mensaje de Dani: «Gracias Wonder, la verdad que siempre me sentía mal por no hablarle a la chica que me gustaba, sobre todo al volver a casa. El hecho de haberme atrevido a probarlo esta semana ha sido increíble.»">
-        <figcaption><span class="vav" aria-hidden="true">D</span><span><b>Dani</b> · lector del manual, beta tester</span></figcaption>
+        <figcaption><span class="vav" aria-hidden="true">D</span><span><b>Dani A. I.</b>, 27 años, Madrid<span class="vrole">Lector del manual · beta tester</span></span></figcaption>
       </figure>
       <figure class="voice reveal">
         <blockquote>Me has ayudado a ser yo. Ahora soy yo el que elige.</blockquote>
         <img src="img/testimonio-3.webp" width="980" height="556" loading="lazy" decoding="async" alt="Mensaje de Roberto: «Wonder, muchísimas gracias, que hoy la que me gustaba andaba todo el rato detrás mío y lo mejor es que todo es natural, no finjo ser nadie y me has ayudado a ser yo. Ahora soy yo el que elige, gracias hermano, que esto parece magia.»">
-        <figcaption><span class="vav" aria-hidden="true">R</span><span><b>Roberto</b> · lector del manual, beta tester</span></figcaption>
+        <figcaption><span class="vav" aria-hidden="true">R</span><span><b>Roberto T.</b>, 21 años, Sevilla<span class="vrole">Lector del manual · beta tester</span></span></figcaption>
       </figure>
       <!-- Lenin hizo el bootcamp presencial, no el manual: debe quedar siempre indicado -->
       <figure class="voice reveal">
@@ -1041,7 +1042,7 @@ footer button.linklike:focus-visible{outline:2px solid var(--gold);outline-offse
           <summary>Leer lo que dice en el audio</summary>
           <p>«Muy buenas, gente. Desde aquí quería recomendar muchísimo la mentoría de Wonder. A mí me ha encantado: salimos por la noche, por el día, hice cierre de beso, varios cierres de teléfono… Con él pude conocer a muchísima gente del entorno, me encantó. Si alguno tiene problemas con la aproximación y con el rechazo, que era mi caso, lo recomiendo muchísimo.»</p>
         </details>
-        <figcaption><span class="vav" aria-hidden="true">L</span><span><b>Lenin</b> hizo conmigo el bootcamp presencial: salimos juntos 3 días. Es el mismo método del manual, aplicado en persona.</span></figcaption>
+        <figcaption><span class="vav" aria-hidden="true">L</span><span><b>Lenin</b>, 25 años, Murcia<span class="vrole">Hizo conmigo el bootcamp presencial: salimos juntos 3 días. Es el mismo método del manual, aplicado en persona.</span></span></figcaption>
       </figure>
     </div>
     <p class="vnote reveal"><b>Arturo, Dani y Roberto</b> son de mi comunidad y probaron el manual como beta testers antes del lanzamiento.</p>
